@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 기초</title>
+    <link href="css/7_css기초.css" rel="stylesheet">
+    <style>
+        a{font-size:10px;}
+    </style>
+    <!--
+        외부 스타일 / 내부 스타일 (태그 가까이 있는 태그가 우선순위가 더 높음)
+        현재 페이지에서 link와 style 위치를 변경하면 적용 달라짐
+        **(우선순위) 내부스타일>외부스타일로 적힌 책도 있지만 항상 모든 경우에 높은게 아니라고 말씀하심.**
+    -->
+    <script src="js/prefixfree.min.js"></script>
+</head>
+
+<body>
+    
+    <h1>
+        <a href="#">이지스퍼블리싱</a>
+    </h1>
+
+    <h1>
+        <a href="#">
+            <img src="img/easyspub.jpg" alt="이지스퍼블리싱">
+        </a>
+    </h1>
+
+    <p id="first" class="kim" style="font-size:8px;">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+        Perferendis harum voluptatibus exercitationem atque inventore. 
+        Magnam sit dolore non sed repellat ad placeat rerum, optio provident 
+        ipsam amet fugit modi eius!
+    </p>
+
+    <!-- <div class="pink font30">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Dolor officia esse veritatis magni sequi, porro laborum aperiam dolores 
+        voluptatum exercitationem laboriosam optio consequatur aspernatur hic quidem qui, 
+        rerum eligendi voluptatem.
+    </div>
+    <div class="brown font30">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Dolor officia esse veritatis magni sequi, porro laborum aperiam dolores 
+        voluptatum exercitationem laboriosam optio consequatur aspernatur hic quidem qui, 
+        rerum eligendi voluptatem.
+    </div> -->
+    <!-- class명을 여러개 줄 수 있기때문에 이렇게줘서 style작업 시 공통 클래스들 한번에 작업 시킬 수 있음. -->
+</body>
+</html>

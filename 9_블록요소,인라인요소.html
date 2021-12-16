@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블록요소,인라인요소</title>
+    <style>
+        *{border:1px solid red; margin:0; padding:0;}
+        /* h1,p,div,ul,li{width:100%;} */
+        /* 
+        블록레벨요소 :  한줄을 차지 (줄바꿈이 생김), 기본넓이가 100%
+        인라인레벨요소 : 줄바꿈이 안생김, 한줄로 정렬, 넓이높이 스타일을 쓸수없음
+        */
+        #nav1 .depth1 {
+            margin:0px;
+            padding:0px;
+        }
+        #nav1 .depth1 > li{ 
+            display:inline-block;
+            width:20%;
+            height:50px;
+            border:1px solid black;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        /* 1차 분류일때만 사용가능. (즐겨쓰는 방법은 아님) 
+        예외사항때문에 잘 사용되지는 않음*/
+        #nav2 .depth1 {
+            display: table;
+            background: lime;
+            width:100%;
+        }
+        /* display:none으로 바뀐것들은 스크린 리더기에서 낭독도 되지않음
+        (반응형 스타일 시 기기에 따라 보여지는 양이 다르기때문에 그럴때 많이 사용) 
+        none을 다시 살려낼때는 원래의 성격에 맞춰서 살려놔야함.*/
+        #nav2 .depth1 > li {
+            display: table-cell;
+            /* 한줄로 쭉 이어지게 table-cell 처리 */
+            width:20%;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>정의란</h1>
+    <p>정의란</p>
+    <div>정의란</div>
+    <ul>
+        <li>정의란</li>
+        <li>정의란</li>
+    </ul>
+    <span>정의란</span>
+    <strong>정의란</strong>
+    <em>정의란</em>
+    <a href="#">정의란</a>
+    <img src="img/1.jpg" alt="">
+
+    <div id="nav1">
+        <ul class="depth1">
+            <li><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+            <li><a href="#">메뉴4</a></li>
+            <li><a href="#">메뉴5</a></li>
+        </ul>
+    </div>
+    <div id="nav2">
+        <ul class="depth1">
+            <li><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+            <li><a href="#">메뉴4</a></li>
+            <li><a href="#">메뉴5</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

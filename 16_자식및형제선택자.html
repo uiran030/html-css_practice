@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자식, 후손, 형제 연결선택자</title>
+</head>
+<style>
+    /* 부모자식관계는 부모 > 자식 */
+    ul > li > a {color:black;}
+
+    /* 조손관계 (조상과 후손 사이 띄어쓰기): 조상 후손 */
+    /* ul a {text-decoration: none;} */
+    .depth1 .mlist{text-decoration: none;}
+
+    /* 인접형제요소 지목하기 : + */
+    .depth1 {
+        overflow: hidden;
+        list-style: none;
+    }
+    .depth1 > li {
+        float: left;
+        width:200px;
+    }
+    .depth1 > li+li {border-left: 1px solid red;}
+    .depth1 > li > a {
+        font-size: 20px;
+        display: block;
+        text-align: center;
+    }
+
+    /* 'depth1안에 동생들 중에 p인 곳'을 의미 */
+    .depth1 ~ p {font-size: 50px;}
+    /* +는 바로 다음 요소에만 사용이 가능함 */
+</style>
+<body>
+    
+    <ul class="depth1">
+        <li><a href="#" class="mlist">메뉴1</a></li>
+        <li><a href="#" class="mlist">메뉴2</a></li>
+        <li><a href="#" class="mlist">메뉴3</a></li>
+        <li><a href="#" class="mlist">메뉴4</a></li>
+    </ul>
+
+    <h1>정의란</h1>
+    <p>정의란</p>
+</body>
+</html>

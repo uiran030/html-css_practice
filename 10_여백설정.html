@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여백 설정</title>
+    <style>
+        *{margin:0; padding:0;}
+        a{color:inherit;}
+        /* a는 파란 글씨를 기본으로 가지는데 그걸 바꾸기위해 inherit작업함 */
+        h1{
+            width:300px; height:300px;
+            /* ↓요소의 넓이값에 padding과 border 값을 합쳐줌 */
+            box-sizing: border-box;
+            /* border-box 작업함으로써 위에 width,height안에
+            다른 속성 크기를 그대로 맞추기 위함임. (무조건 사용이라고 생각하는게 좋음) */
+            background: pink;
+            margin:50px 30px 30px;
+            padding:50px 20px 50px 30px;
+            border:10px solid red;
+        }
+        p{
+            background:coral;
+            margin-top:-50px;
+            padding-left: 50px;
+            /* padding은 음수값 X */
+        }
+        /* 자식박스를 부모박스 넓이 가운데 정렬하려면 자식박스에 margin:0 auto 적용 */
+        div{
+            width:200px;
+            padding:30px 0px;
+            background: orange;
+            text-align: center;
+            margin:50px auto;
+        }
+
+        /* 인라인요소에 padding 상하여백을 주면 부작용이 생김.
+            이러한 문제점을 해결하기위해 display:inline-block 속성을 추가하여 해결 */
+        span, a{
+            background: blue; padding:30px 50px;
+            display: inline-block;
+        }
+        h2{border : 1px solid red;}
+    </style>
+</head>
+<body>
+    
+    <h1>정의란</h1>
+    <p>정의란</p>
+    <div>정의란</div>
+    <div>정의란</div>
+
+    <span>정의란</span>
+    <a href="#">정의란</a>
+
+    <h2>정의란</h2>
+
+</body>
+</html>

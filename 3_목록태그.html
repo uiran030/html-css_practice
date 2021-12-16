@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list tag</title>
+</head>
+<body>
+    <h1>1박 2일 가족 여행코스</h1>
+    <!-- ul>li*n 후 tap key 누르면 ul&li n개 만큼 만들어짐 -->
+<!-- 기본 목록 -->
+    <ul type="none">
+        <li>1일차
+            <ol type="a">
+                <li>해녀박물관</li>
+                <li>낚시체험</li>
+            </ol>
+        </li>
+        <li>2일차
+            <ol type="a" start="3">
+                <li>용눈이오름</li>
+                <li>만장굴</li>
+                <li>카약체험</li>
+            </ol>
+        </li>
+    </ul>
+
+<!-- 2차 묶음 -->
+    <ul>
+        <li>회사소개
+            <ul>
+                <li>인사말
+                    <ul>
+                        <li>인사말1</li>
+                        <li>인사말2</li>
+                        <li>인사말3</li>
+                    </ul>
+                </li>
+                <li>연혁</li>
+                <li>인증서</li>
+                <li>조직도</li>
+                <li>오시는길</li>
+            </ul>
+        </li>
+        <li>사업소개
+            <ul>
+                <li>사업분야1</li>
+                <li>사업분야2</li>
+                <li>사업분야3</li>
+                <li>사업분야4</li>
+                <li>홍보영상</li>
+            </ul>
+        </li>
+        <li>포토폴리오
+            <ul>
+                <li>포토폴리오1</li>
+                <li>포토폴리오2</li>
+                <li>포토폴리오3</li>
+                <li>포토폴리오4</li>
+            </ul>
+        </li>
+        <li>채용안내
+            <ul>
+                <li>채용안내</li>
+                <li>채용공고</li>
+                <li>채용접수</li>
+            </ul>
+        </li>
+        <li>고객센터
+            <ul>
+                <li>공지사항</li>
+                <li>뉴스 및 소식</li>
+                <li>질문과 답변</li>
+                <li>FAQ</li>
+                <li>일대일 문의</li>
+                <li>스케줄표</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- 정의형 목록 -->
+    <h2>정의형목록</h2>
+    <dl>
+        <dt>올레 1코스</dt>
+        <dd>코스 : 시흥 초등학교 옆 - 광치기 해변</dd>
+        <dd>거리 : 14.6km(4~5시간)</dd>
+        <dd>난이도 : 중</dd>
+
+        <dt>올레 2코스</dt>
+        <dd>코스 : 광치기 해변 - 온평 포구</dd>
+        <dd>거리 : 14.5km(4~5시간)</dd>
+        <dd>난이도 : 중</dd>
+    </dl>
+    <!-- dt & dd는 형제관계임 (부모관계라고 오해하지않기) -->
+</body>
+</html>

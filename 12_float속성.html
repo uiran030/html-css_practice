@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float 속성</title>
+    <style>
+        *{margin:0; padding: 0; box-sizing: border-box;}
+        a{color:inherit; text-decoration: none;}
+        ul{
+            list-style-type: none; 
+            width:800px; 
+            background: #0abb26;
+            margin:50px auto;
+            overflow: hidden;
+            /* float작업을 통해 자식이 뜨면서 부모가 원래 성질을 잃어서 hidden 작업 */
+        }
+        ul>li{
+            width:25%;
+            float: left;
+            /* float: left or right or none */
+            border:1px solid black;
+            text-align: center;
+            padding:10px 0px;
+        }
+
+        /* 
+            자식요소들이 float 정렬을 하면 부모요소는 높이가 무너져서 부작용이 생김
+            해결은 부모요소에 overflow:hidden 속성 적용 (공식처럼)
+        */
+
+        #container{
+            width:800px; 
+            margin:50px auto;
+            border:1px solid black;
+            overflow: hidden;
+            /* div아래 p있을때 hidden 작업없으면 칸이 깨짐. 그래서 꼭 적용! */
+        }
+        .content{
+            width:48%;
+            height:300px;
+            /* 실제로는 box들에게 높이설정은 거의 X, 지금 공부할때만 크기가 안보여서 높이 설정하는 것임 */
+            border:1px solid red;
+            float: left;
+        }
+        .content:first-child{width:20%; height: 100px;}
+        .content:nth-child(2){float: right; width:76%; height: 50px;}
+        /* 
+            형제요소들이 float 정렬을 하면 다음 형제요소에 부작용이 생김
+            해결은 마지막 형제요소에 clear:both 추가
+        */
+        #container > p {clear:both;}  
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li><a href="#">브랜드패션</a></li>
+        <li><a href="#">유아동</a></li>
+        <li><a href="#">식품ㆍ생필품</a></li>
+        <li><a href="#">자동차ㆍ공구</a></li>
+    </ul>
+
+    <div id="container">
+        <div class="content">내용1</div>
+        <div class="content">내용2</div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+            Similique voluptates maiores quos accusantium ducimus perferendis, 
+            itaque officia assumenda natus accusamus eius voluptatum voluptate 
+            blanditiis id soluta. Dolores, quaerat ducimus. Deleniti?
+        </p>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Hic cum sequi totam repellendus repellat eum explicabo corporis. 
+        Doloremque corrupti alias id libero quas tempore laudantium unde est sapiente, aut enim?
+    </p>
+    
+</body>
+</html>

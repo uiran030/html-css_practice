@@ -1,0 +1,53 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+*{margin:0; padding:0; box-sizing: border-box;}
+img{
+    width:100%;
+    vertical-align: middle;
+}
+/* vertical-align 속성은 세로정렬로 사용하지만, 이렇게 img와
+다음 요소의 border 사이를 붙이기 위함으로도 사용됨. (그냥 외우면됨) */
+body{
+    font-size: 18px; 
+    font-family: '맑은 고딕';
+}
+div{
+    width:640px;
+    margin:0 auto;
+    border:2px solid black;
+}
+h1{
+    text-align: center;
+    font-size: 2.5em;
+    font-family: 'Cabin', sans-serif;
+    font-variant: small-caps;
+    padding:20px 0;
+}
+.up{
+    text-align: justify;
+    line-height: 1.5em;
+    padding:0 20px;
+}
+h2{
+    background-color: black;
+    color:white;
+    font-size: 2em;
+    padding:10px;
+}
+h3{
+    color:red;
+    font-size: 1.5em;
+    text-align: center;
+    padding:30px 0 20px;
+}
+.co{
+    color:blue;
+}
+.line{text-decoration: underline;}
+.center{text-align: center;}
+.time{
+    text-align: center; 
+    font-size: 0.8em;
+    padding-bottom: 20px;
+}
+ol{padding:0 50px;}

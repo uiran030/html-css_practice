@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그속성</title>
+    <style>
+        a[class] {color:red;}
+        a[class="second"]{color:green;}
+        /* a[class~="pink"] {color:pink;} */
+        a[class|="pink"] {color:pink}
+        a[title^="설명"] {font-size: 50px;}
+        a[title$="설명"]{font-size: 30px;}
+        a[title*="설명"] {font-family: '궁서체';}
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li><a href="#" title="설명1" class="first">메뉴1</a></li>
+        <li><a href="#" title="설명2" class="second pink">메뉴2</a></li>
+        <li><a href="#" title="참고설명" class="pink">메뉴3</a></li>
+        <li><a href="#" title="참고설명" class="pink-color">메뉴4</a></li>
+    </ul>
+
+</body>
+</html>

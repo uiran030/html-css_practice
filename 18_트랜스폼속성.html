@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform 속성</title>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        .parent{
+            width:500px;
+            height: 500px;
+            border:1px solid black;
+            margin:50px;
+        }
+        .child{
+            width:100px;
+            height: 100px;
+            background: red;
+            transform: translate(0px);
+            transition:all 1s;
+            transform-origin: left top; 
+        }
+        /* .child:hover{transform: translate(100%, 100%);} (이동) */
+        /*.child:hover {transform:scale(0.5);}*/
+        /*.child:hover{transform: rotate(-45deg);}*/
+        .child:hover{transform: skew(-45deg, -45deg);}
+        /*.child:hover{transform: translate(100%, 100%) scale(2) rotate(-45deg) skew(-45deg, -45deg);}*/
+        
+        /* transform 속성은 inline 요소에는 적용되지 않으므로 inline-block or block에만 적용됨 */
+        span{transform: translateX(500px); display: inline-block;}
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+
+    <span>정의란</span>
+</body>
+</html>

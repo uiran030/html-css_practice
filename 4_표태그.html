@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표만들기</title>
+</head>
+<body>
+    
+    <table border="1" width="500px" height="300px">
+        <tr>
+            <th scope="row">1행 1열 (제목)</th>
+            <td>1행 2열</td>
+            <td>1행 3열</td>
+        </tr>
+        <tr>
+            <th scope="row">2행 1열 (제목)</th>
+            <td>2행 2열</td>
+            <td>2행 3열</td>
+        </tr>
+    </table>
+    <!-- 스타일때문에 th,td를 나뉘는게 아니라 시각 장애를 가지신 분들을 위해 구분짓는 것 
+    scope="row"는 행의 제목이라는 의미 / scope="col"은 열의 제목이라는 의미-->
+
+    <br><br>
+
+    <!-- <h2>공지사항</h2> -->
+    <figure>
+        <table border="1" width="700px">
+            <!-- <caption>공지사항</caption>  -->
+            <!-- 잘안씀, hn을 더 많이 사용함/낭독되지않게 처리하고 hn만 낭독되게 설정함. 
+            현재는 설정을 따로 안한 상태임-->
+            <colgroup>
+                <!-- 제일 칸이 많이 나눠져있는 부분에 속성을 설정해주면 됨 -->
+                <col style="width:100px; background: lime;">
+                <col style="width:250px;">
+                <col style="width:100px;">
+                <col style="width:250px;">
+            </colgroup>
+            <!-- 행 단위로 컬러주기를 원하면 tr에 주면되지만,
+            열 단위로 컬러주기를 원하면 col 태그에서 주면 됨. -->
+            <tr style="background:gray;">
+                <th>이름</th>
+                <td></td>
+                <th>연락처</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>주소</th>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <th>자기소개</th>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+        <figcaption>공지사항</figcaption>
+    </figure>
+
+    <br><br>
+
+    <table border="1" width="600">
+        <thead>
+            <tr>
+                <th scope="col">방이름</th>
+                <th scope="col">대상</th>
+                <th scope="col">크기</th>
+                <th scope="col">가격</th>
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <td colspan="4">바깥채 전체를 렌트합니다.</td>
+            </tr>
+        </tfoot>
+        <!-- 순서를 바꿈으로써 낭독 순서를 head>foot>body 순으로 진행.
+        현재 표에서 foot부분은 중요한 정보를 다루지는 않지만 다른 표의 경우 foot에 요약된 
+        중요한 정보가 있을 땐 먼저 낭독하고나서 body 부위를 설명해주는 것이 좋아서 순서를 바꾸는 작업을
+        진행하는 것이 좋음. 표에서 순서가 바뀌진않지만 낭독 순서만 바껴짐.-->
+        <tbody>
+            <tr>
+                <td>유채방</td>
+                <td>여성 도미토리</td>
+                <td rowspan="3">4인실</td>
+                <td rowspan="4">1인 20,000원</td>
+            </tr>
+            <tr>
+                <td rowspan="2">동백방</td>
+                <td>동성 도미토리</td>
+            </tr>
+            <tr>
+                <td>가족 1팀</td>
+            </tr>
+            <tr>
+                <td>천혜향방</td>
+                <td>-</td>
+                <td>2인실</td>
+            </tr>
+        </tbody>
+    <!-- 표에 제목이 가로세로로 있을 경우에는 head, foot을 따로 정하지않고 body만 있다고 
+    생각하고 작업하는게 좋음. -->
+    </table>
+    
+</body>
+</html>

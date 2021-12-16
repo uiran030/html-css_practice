@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 애니메이션</title>
+    <style>
+        .box{
+            width:100px;
+            height: 100px;
+            background: red;
+            margin:50px;
+            animation: boxani 3s ease 1 both;
+            /* 반복횟수가 1일때 처음으로 돌아가지않고 상태 유지를 위해 both사용 (잘 안씀) */
+            /* name 진행시간 속도함수 반복획수 대기시간 */
+        }
+        .box:hover{animation-play-state: paused;}
+        /* 잘 안씀 */
+
+        @keyframes boxani{
+            0% {
+                transform:translateX(0) rotate(0deg) scale(1);
+                border-radius: 0%;
+                background: plum;
+                opacity: 0.5;
+            }
+            50%{
+                transform:translate(300px, 300px) rotate(0deg) scale(1);
+            }
+            100% {
+                transform:translateX(600px) rotate(2turn) scale(2);
+                border-radius: 50%;
+                background: powderblue;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

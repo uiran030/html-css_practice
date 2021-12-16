@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition은 속성값이 숫자값인 것에만 적용이 됨</title>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        .box{
+            width:100px;
+            height: 100px;
+            background: red;
+            margin:50px;
+            position:relative;
+        }
+        /*.box::after{
+            content: '';
+            position:absolute;
+            top:0%; left:0%; right:0%; bottom:100%;
+            background: rgba(0,0,0,0.5);
+            transition: all 0.5s;
+        }
+        .box:hover::after{bottom:0%;}*/
+
+        /* 박스 안쪽 사방에서 선이 그려지는 애니메이션 */
+        .box::after{
+            content: '';
+            position:absolute;
+            left:10%; right:90%; top:10%;
+            height: 1px;
+            background: #fff;
+            transition:all 1s;
+        }
+        .box:hover::after{right:10%;}
+        .box::before{
+            content: '';
+            position:absolute;
+            left:90%; right:10%; bottom:10%;
+            height: 1px;
+            background: #fff;
+            transition:all 1s;
+        }
+        .box:hover::before{left:10%;}
+        .box span{
+            position: absolute;
+            top:0; left:0;
+            width:100%;
+            height: 100%;
+        }
+        .box span::before{
+            content: '';
+            position:absolute;
+            right:10%; top:10%; bottom:90%;
+            width:1px;
+            background: #fff;
+            transition: all 1s;
+        }
+        .box span:hover::before{bottom:10%;}
+        .box span::after{
+            content: '';
+            position:absolute;
+            left:10%; top:90%; bottom:10%;
+            width:1px;
+            background: #fff;
+            transition: all 1s;
+        }
+        .box span:hover::after{top:10%;}
+
+        /* 이미지박스에 호버하면 이미지정보 나타나는 애니메이션 */
+        .parent img{
+            max-width: 100%; 
+            vertical-align: middle;
+            transition: all 0.5s;
+        }
+        .parent{
+            width:250px;
+            position:relative;
+            overflow: hidden;
+        }
+        .parent .info {
+            position:absolute; 
+            bottom:0; left:0; right:0;
+            background: rgba(0,0,0,0.5);
+            color:#fff;
+            padding:20px 0;
+            text-align: center;
+            transform:translateY(0%);
+            transition:all 1s;
+            /* display: none; */
+            opacity: 0;
+        }
+        /* 속성의 값이 문자값인 경우에는 애니메이션 안먹힘 (대표적인 예-display) */
+        .parent:hover .info{
+            transform:translateY(0%);
+            /* display: block;*/
+            opacity: 1;
+        }
+        .parent:hover img{
+            transform:scale(1.2)
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span></span>
+            본래내용
+    </div>
+
+    <div class="parent">
+        <img src="./양성반 HTML,CSS/img/car1.jpg" alt="자동차">
+        <div class="info">
+            <p>자동차</p>
+            <p>50,000,000원</p>
+        </div>
+    </div>
+</body>
+</html>

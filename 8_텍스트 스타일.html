@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text style</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Nanum+Pen+Script&display=swap');
+        /* font-family: 'East Sea Dokdo', cursive;
+        font-family: 'Nanum Pen Script', cursive; */
+
+        body{font-family: 'Nanum Pen Script', 'cursive'; font-size:20px;}
+        /* family:'나눔 고딕', '맑은고딕', '굴림'; ->여러개 적어두는 이유는 1순위 나눔 고딕으로 적용하되, 
+        없으면 맑은 고딕으로 없으면 굴림체로 변경되도록 하기위함. (마지막은 모든 컴퓨터에 기본으로 있는 흔한 글씨체로 설정해야함)*/
+        .accent{
+            font-weight: bold;
+            font-variant: small-caps;
+        }
+        /* h1{font-style: italic;} */
+        em{font-style: normal;}
+        h1{
+            font-size:50px;
+            font-family: '맑은 고딕';
+            /* shade 여러개 적용가능 (중간에 , 필요) */
+            text-shadow: 0px 0px 10px red, -5px -5px 5px blue, 5px 5px 5px green;
+            white-space: pre;
+            /* 원래는 스페이스바를 많이 눌러도 적용이 안되는데 white-space:pre작업으로
+            적용되게하는 것 (잘 안씀) */
+        }
+
+        /* font 대표속성에는 글자크기, 글꼴은 필수값 */
+        div{
+            font:italic small-caps bold 20px/2em '궁서체',serif;
+            color:rgba(255, 0, 0, 0.3);
+            
+            white-space: nowrap;
+            /* wrap이 기본값임 (텍스트가 넘쳐도 줄바꿈 X) */
+            width:500px; border:1px solid black;
+            overflow: hidden;
+            /* 넘치는 내용은 안보이게 함 */
+            text-overflow: ellipsis;
+            /* text-overflow 작업 시 뒤에 날라간 부위는 ...표시됨 
+            (내용이 생략되었음을 말줄임표로 표시함)*/
+            /* white~overflow 거의 세트로 씀 */
+        }
+    </style>
+</head>
+<body>
+    
+    <h1><em>세계       3대       미향</em></h1>
+    <p><span class="accent">시드니(Sydney)</span>, 호주</p>
+    <p><span class="accent">리우데자네이루(Rio de Janeiro)</span>, 브라질</p>
+    <p><span class="accent">나폴리(Naples)</span>, 이탈리아</p>
+
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, 
+        consequuntur amet aliquid ut illum fuga dolorem maiores ipsa aspernatur quidem, 
+        exercitationem veritatis reprehenderit recusandae ratione tempore blanditiis eveniet 
+        quibusdam rerum?
+    </div>
+
+</body>
+</html>

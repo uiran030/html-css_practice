@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 클래스(수도 클래스)</title>
+    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        ul{list-style: none;}
+        /* html을 대신하는 가상클래스 :root */
+        :root{ font-size: 30px; }
+
+        /* 아무것도 하지않았을 때 (기본값: 컬러 blue, 밑줄) */
+        a{color:green; text-decoration: none;}
+
+        /* 방문하고 돌아왔을 때 (기본값: 컬러 바이올렛) */
+        /* a:visited{color:orange;} */
+
+        /* 누르고 있는 상태 (기본값: 컬러 레드) */
+        /* a:active{color:brown;} */
+
+        /* (기본값: 컬러 블루) */
+        a:hover {color:paleturquoise}
+
+        /* tab 키로 이동할때 잡히는 상황 (기본값: 컬러 블루)
+        -js에서 많이 쓰고 css에서는 잘 안쓴다고 하심.*/
+        /* a:focus{color:black;} */
+
+        /* 
+            현재 주석처리안한것들을 평상시에 많이 사용한다고 말씀하심.
+
+            링크 스타일은 총 5가지 가상클래스로 구분해서 스타일을 줄 수 있지만,
+            대부분은 동일한 스타일을 사용하고 hover만 다른 스타일을 적용함
+        */
+        ul{
+            width:200px;
+            margin:50px auto;
+        }
+        ul>li{
+            border:1px solid black;
+        }
+        ul>li>a{
+            display: block;
+            padding:8px 8px 9px;
+        }
+        /* 
+            fas- font-family: Font Awesome 5 Free, font: weight 900px;
+            far- font-family: Font Awesome 5 Free, font: weight 400px;
+            fab- font-family: Font Awesome 5 Brands, font: weight 400px;
+        */
+
+        ul > li >a::after{
+            content: '\f054';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900 !important;
+            padding-left: 130px;
+            font-size: 10px;
+            color:red;
+        }
+        ul> li> a:hover::after{
+            color:black;
+        }
+        ul > li:nth-child(3) > a {color:orange;}
+        ul > li:nth-child(3):hover > a {color:paleturquoise;}
+        /* 
+            first-child, last-child, nth-child(n)은 이름이 같은 형제들끼리
+            순서를 정해서 지목할 때 사용함.
+        */
+
+        p::first-line{
+            color:red;
+        }
+        p::first-letter{
+            font-size: 80px;
+        }
+
+        #popup1, #popup2, #popup3, #popup4 {
+            position:fixed;
+            top:0; left: 0;
+            width:100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            color:white;
+            text-align: center;
+            display: none;
+        }
+        #popup1:target, #popup2:target, #popup3:target, #popup4:target {
+            display: block;
+        }
+        span:not(#kim) {color:blue;}
+    </style>
+</head>
+
+<body>
+    
+    <ul>
+        <li><a href="#popup1">메뉴1</a>
+            <div id="popup1">메뉴1의 상세내용입니다.
+                <a href="#" style="background: red; color:#fff; padding:10px">닫기</a>
+            </div>
+        </li>
+        <li><a href="#popup2">메뉴2</a>
+            <div id="popup2">메뉴2의 상세내용입니다.
+                <a href="#" style="background: red; color:#fff; padding:10px">닫기</a>
+            </div>
+        </li>
+        <li><a href="#popup3">메뉴3</a>
+            <div id="popup3">메뉴3의 상세내용입니다.
+                <a href="#" style="background: red; color:#fff; padding:10px">닫기</a>
+            </div>
+        </li>
+        <li><a href="#popup4">메뉴4</a>
+            <div id="popup4">메뉴4의 상세내용입니다.
+                <a href="#" style="background: red; color:#fff; padding:10px">닫기</a>
+            </div>
+        </li>
+    </ul>
+
+    <p>
+        Lorem ipsum dolor sit amet, <span>consectetur</span> adipisicing elit. 
+        Ipsum provident at, <span>dignissimos</span> in maiores laboriosam dicta minus placeat 
+        laudantium sapiente mollitia <span id="kim">quam</span> dolor hic. 
+        Harum distinctio aut numquam qui quaerat?
+    </p>
+</body>
+</html>

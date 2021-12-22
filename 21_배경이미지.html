@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background image</title>
+    <style>
+        *{box-sizing:border-box;}
+        /* 배경이미지는 구조와 비슷한 비율(넓이:높이)을 준비한다. */
+        .box{
+            width:100%; 
+            /* height: 500px;  */
+            /* border:50px dotted black;
+            padding:50px; */
+            margin-top: 600px;
+
+            /*background-clip: content-box; (clip은 배경색에 기준(border,padding,content) 설정-거의 사용X)
+            background-color:pink; */
+
+            /* origin은 배경이미지에 대한 기준 설정-거의 사용X */
+            background-image: url(./img/sunset.jpg);
+            /* background-origin: content-box; */
+
+            /* 배경이미지 반복 여부 : 기본값은 repeat */
+            background-repeat: no-repeat;
+
+            /* 
+                cover 값은 가로, 세로 중 크기가 작은 쪽이 부모넓이나 높이에 에 100%로 맞춰지면서
+                overflow된 나머지 한 쪽은 자동으로 잘리게 된다.
+                contain 값은 배경이미지 가로, 세로 중 크기가 큰 쪽이 부모의 넓이나 높이에
+                100%로 맞춰지면서 나머지 한쪽이 빈 공간이 생기게 된다
+            */
+            
+            background-size: cover;
+            background-attachment: fixed;
+            /*auto 50%; 넓이 높이 (이미지는 깨지면 좋지않아서 한쪽만 맞추고 auto)/ cover값을 쓸때는 background-position:npx이 별 의미 없음*/
+            /* background-position:500px bottom;     기본값=left top (%로 계산 시 0이 left, 음수값 가능) */
+            background-position:center bottom;
+        }
+
+        /*  background 한줄표기법
+        background:배경색 배경이미지경로 반복여부 가로위치 세로위치 
+        background-size:cover;
+        (뒤에 붙여도되는데 너무 길어지고 햇갈릴 수 있어서 size는 따로 적는 경우가 많음)
+        */
+    </style>
+</head>
+<body style="height: 3000px;">
+    
+    <div class="box">정의란</div>
+
+</body>
+</html>

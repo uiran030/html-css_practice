@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 스프라이트배경이미지 사용하기</title>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        .sbg{
+            background-image: url(./img/sp_main_bf79fd.png);
+            background-repeat: no-repeat;
+        }
+        .blind{
+            position: absolute;
+            width:1px; height: 1px;
+            overflow: hidden;
+            text-indent: -99999px;
+            font-size: 0px;
+            line-height: 0px;
+        }
+        h1 a{
+            display: block;
+            width:442px;
+            height: 104px;
+            background-position: 0 -316px;
+        }
+
+        .up{
+            width:90px; 
+            height: 90px;
+            background-position: -412px -426px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>
+        <a href="#" class="sbg">
+            <span class="blind">네이버</span>
+        </a>
+    </h1>
+
+    <div class="up sbg">
+        <span class="blind">위로</span>
+    </div>
+</body>
+</html>

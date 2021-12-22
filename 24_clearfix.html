@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clear:both</title>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        .cf::after, .cf::before{
+            content: '';
+            clear: both;
+            display: block;
+        }
+        ul{list-style: none;}
+        img{width: 100%; vertical-align: middle;}
+        .content{max-width: 1000px; margin:0 auto; border:1px solid red;}
+
+        ul li {float: left; width:25%;}
+        /* 
+            높이가 다른 리스트를 한줄로 정렬할 때 전줄의 마지막 리스트가 높이가 낮으면
+            다음줄의 첫번째 리스트가 그 빈틈으로 올라가는 부작용을 해결하려면 아래의 공식을 사용함.
+        */
+        /* n값이 0이면 첫번째 줄, 1이면 두번째 줄 */
+        ul li:nth-child(4n+1){clear: both;}
+    </style>
+</head>
+<body>
+    
+    <div class="content">
+        <ul class="cf">
+            <li>
+                <a href="#">
+                    <img src="./img/1.jpg" alt="">
+                    <p class="prdname">상품명1</p>
+                </a>
+                <div class="desc">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit, cumque aperiam. Omnis non aut quasi. Tempore enim tempora 
+                    natus maxime ipsam, labore laboriosam id dolore in rerum asperiores 
+                    libero perspiciatis!
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/2.jpg" alt="">
+                    <p class="prdname">상품명2</p>
+                </a>
+                <div class="desc">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit, cumque aperiam. Omnis non aut quasi. Tempore enim tempora 
+                    natus maxime ipsam, labore laboriosam id dolore in rerum asperiores 
+                    libero perspiciatis!
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit, cumque aperiam. Omnis non aut quasi. Tempore enim tempora 
+                    natus maxime ipsam, labore laboriosam id dolore in rerum asperiores 
+                    libero perspiciatis!
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/3.jpg" alt="">
+                    <p class="prdname">상품명3</p>
+                </a>
+                <div class="desc">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit, cumque aperiam. Omnis non aut quasi. Tempore enim tempora 
+                    natus maxime ipsam, labore laboriosam id dolore in rerum asperiores 
+                    libero perspiciatis!
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/4.jpg" alt="">
+                    <p class="prdname">상품명4</p>
+                </a>
+                <div class="desc">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit, cumque aperiam. Omnis non aut quasi. Tempore enim tempora 
+                    natus maxime ipsam, labore laboriosam id dolore in rerum asperiores 
+                    libero perspiciatis!
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit, cumque aperiam. Omnis non aut quasi. Tempore enim tempora 
+                    natus maxime ipsam, labore laboriosam id dolore in rerum asperiores 
+                    libero perspiciatis!
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/1.jpg" alt="">
+                    <p class="prdname">상품명5</p>
+                </a>
+                <div class="desc">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit, cumque aperiam. Omnis non aut quasi. Tempore enim tempora 
+                    natus maxime ipsam, labore laboriosam id dolore in rerum asperiores 
+                    libero perspiciatis!
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/2.jpg" alt="">
+                    <p class="prdname">상품명6</p>
+                </a>
+                <div class="desc">
+                    Lorem, ipsum
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/3.jpg" alt="">
+                    <p class="prdname">상품명7</p>
+                </a>
+                <div class="desc">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit, cumque aperiam. Omnis non aut quasi. Tempore enim tempora 
+                    natus maxime ipsam, labore laboriosam id dolore in rerum asperiores 
+                    libero perspiciatis!
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="./img/4.jpg" alt="">
+                    <p class="prdname">상품명8</p>
+                </a>
+                <div class="desc">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit, cumque aperiam. Omnis non aut quasi. Tempore enim tempora 
+                    natus maxime ipsam, labore laboriosam id dolore in rerum asperiores 
+                    libero perspiciatis!
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Fugit, cumque aperiam. Omnis non aut quasi. Tempore enim tempora 
+                    natus maxime ipsam, labore laboriosam id dolore in rerum asperiores 
+                    libero perspiciatis!
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

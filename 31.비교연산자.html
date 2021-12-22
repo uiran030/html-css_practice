@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비교연산자</title>
+</head>
+<body>
+    
+    <script>
+        //>(크다, 초과), >=(크거나 같다, 이상), <(작다,미만), <=(작거나 같다, 이하), ==(같다), !=(다르다)
+        var x=100,y=200
+        var result1 = x>y  //result=false
+        document.write(result1+"<br>")
+
+        var result2 = x<y
+        document.write(result2+"<br>")
+
+        var result3 = x==y
+        document.write(result3+"<br>")
+        
+        var a=10, b="10"
+        var result4 = a===b //==에서는 true이지만 ===에서는 자료형까지 비교해서 false  (정확한 비교를 위해 ===많이씀)
+        document.write(result4+"<br>")
+    </script>
+</body>
+</html>

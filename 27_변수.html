@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+    <!-- 이 자리 or body안에 script 작성 -->
+</head>
+<body>
+    
+    <script>
+        //자바 스크립트 변수 선언
+        //var x; //var kim 과 var KIM은 다른 변수임
+        //var y //한줄에 하나만 쓸때는 마지막 ; 생략해도되긴함
+        //x = 100;
+        //y = '홍길동'; //문자값은 무조건 ''로 감싸야함 ("" 사용해도 상관없음)
+
+        // var x = 100; 
+        // var y = '홍길동';
+
+        var x=100, y='홍길동', z=true; //한줄기입법 (true->논리값)
+        x=200, y="정의란",z=false;
+        
+        // alert는 가끔 쓰긴하는데 나머지는 잘 안씀
+        //alert(y)                 //경고창에 출력하기
+        //console.log(x)           //개발자도구창 콘솔영역에 출력하기
+        //document.write(z)        //브라우저 화면에 출력하기
+
+        // 변수는 마지막에 저장한 값만 1개만 남아 있음
+        document.write("x="+x+"<br>")
+        document.write("y="+y+"<br>")
+        document.write("z="+z)
+
+    </script>
+</body>
+</html>

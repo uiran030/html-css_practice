@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table style</title>
+    <style>
+        /* 반응형을 위해 꼭 max-width쓰는 것 중요! */
+        .board{max-width:1000px; margin:0 auto;}
+
+        /* 테이블에서 width:100%, border-collapse는 붙어다니는 조건이라고 생각! */
+        .board table{
+            border:0px solid black; 
+            width:100%; 
+            border-collapse: collapse;
+            table-layout: fixed;
+            /* 제목이 길어져서 white-space:nowrap 작업하면 기존 넓이를 잃기때문에 layout:fixed 작업 필요 */
+        }
+        .board th{
+            /* border-top:3px solid black; 
+            border-bottom: 3px solid black; */
+            padding:15px 0;
+            background: #999;
+            color:#fff;
+        }
+        .board thead tr{
+            border-top: 3px solid #333; 
+            border-bottom: 3px solid #333;
+        }
+        .board td{
+            /* border-top:1px solid black;
+            border-bottom:1px solid black */
+            border-top:1px dotted #333;
+            /* border-left:none; border-right: none; */
+            /* 꼭! 줄 높이는 th or td에서 패딩 상하로 조정해야함 */
+            padding:15px 0;
+            text-align: center;
+        }
+        .board tbody tr:last-child {border-bottom: 3px solid #333;}
+        .board tbody tr:nth-child(odd){background: skyblue;}
+        .board tbody tr:nth-child(even){background: lightpink;}
+
+        .board td:nth-child(2){
+            text-align: left; 
+            padding-left: 1em;
+            /* 밑에 세개는 한 set */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* 칸의 넓이를 각 원하는 넓이만큼 조절하기를 원하면 colgroup만든 후 칸만큼 col 갯수 제작
+        제목 넓이는 대부분 auto 작업 많이함 */
+        .board col:nth-child(1){width:50px;}
+        .board col:nth-child(2){width:auto;}
+        .board col:nth-child(3){width:100px;}
+        .board col:nth-child(4){width:120px}
+
+        .caption{display: none;}
+    </style>
+</head>
+<body>
+    <div class="board">
+        <h2>공지사항</h2>
+        <table>
+            <!-- <caption>공지사항</caption> 
+                (잘안씀 제목이 필요하다면 h2 만듬/ 유효성 검사 시에는 caption이 없으면
+                경고가 뜨기때문에 display:none으로 진행함) -->
+            <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        공지사항 안내입니다.공지사항 안내입니다.공지사항 안내입니다.공지사항 안내입니다.공지사항 안내입니다.
+                        공지사항 안내입니다.공지사항 안내입니다.공지사항 안내입니다.공지사항 안내입니다.공지사항 안내입니다.
+                    </td>
+                    <td>정의란</td>
+                    <td>2021-12-20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>공지사항 안내입니다.</td>
+                    <td>정길동</td>
+                    <td>2021-12-20</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>공지사항 안내입니다.</td>
+                    <td>홍길동</td>
+                    <td>2021-12-20</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>공지사항 안내입니다.</td>
+                    <td>홍식동</td>
+                    <td>2021-12-20</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

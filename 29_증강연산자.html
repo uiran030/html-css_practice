@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>증강연산자</title>
+</head>
+<body>
+    
+    <script>
+        var x=100, y=200;
+        //x = x+1;
+        x++ //++x도 가능
+        document.write(x+"<br>")
+
+        //y = y-1;
+        --y //y--도 가능 (하나짜리는 연산자가 앞에나오든 뒤에나오든 상관없음)
+        document.write(y+"<br>")
+
+        var a=1, b=10;
+        //var result= a++ //1,2  //++a시에는 정상적으로 적용이 되지만 a++는 앞에꺼 먼저 적용되고, ++ 적용 이런식이라서 1,2로 결과가 나옴
+        var result=++a //2,2
+        document.write(result+","+a); //1,2
+    </script>
+</body>
+</html>

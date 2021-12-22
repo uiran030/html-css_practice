@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 관련 태그</title>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        .cf::after, .cf::before{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        a{color:inherit; text-decoration: none;}
+        .container{max-width: 1000px; margin:0 auto; border:1px solid black;}
+        .container h2{text-align: center; margin:50px 0;}
+        fieldset{border:none;}
+        .logintit{display: none;}
+        .container #loginform {width:714px; margin:0 auto;}
+        .container .loginbox{width:514px; float: left;}
+        .container .loginbox p {margin-bottom:20px;}
+        #id, #password{
+            width:100%; 
+            height: 50px;
+            border:1px solid #bcbcbc;
+            padding-left: 1em;
+            cursor: pointer;
+        }
+        button{
+            width:160px; 
+            height: 120px; 
+            background: black; 
+            color:white; 
+            border: none;
+            font-size: 15px;
+            float: right;
+        }
+        .container .idsch label{margin:0 20px 0 10px;}
+        .container .idpwfind {margin:50px 0; text-align: center;}
+        .container .idpwfind a {padding:0 20px; position:relative;}
+        .container .idpwfind a::after {
+            content: '';
+            position:absolute;
+            top:7px; right: -5px;
+            width: 2px; height:10px;
+            background: #000;
+        }
+        .container .idpwfind a:last-child::after{display: none;}
+
+        #memoForm #memo {
+            width:500px;
+            height: 300px;
+            border:3px solid #f00;
+            padding:10px;
+            color:green;
+        }
+        ::-webkit-input-placeholder { /* Edge */ color: red;}
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */ color: red;}
+        ::placeholder {color: red;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>LOGIN</h2>
+        <!-- 
+            action:입력한 값을 전달받을 서버프로그램 파일경로
+            method: post(사용자가 입력한 값으로 내용이 드러나지 않음), 
+                    get(프로그램에서 필요한 값으로 내용이 드러남)
+            name:자바스크립트에서 form을 구분하기 위한 이름
+        -->
+        <!-- form=div (폼태그 묶을때 사용) -->
+        <form action="입력값을 전달받을 프로그램 파일경로" method="post" name="loginform" id="loginform">
+            <fieldset>
+                <legend class="logintit">로그인</legend>
+                <!-- input 태그는 class 말고 id로 잡는게 좋음 -->
+                <div class="loginbox">
+                    <p>
+                        <input type="text" id="id" name="id" placeholder="아이디를 입력하세요">
+                    </p>
+                    <p>
+                        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요">
+                    </p>
+                </div>
+                <button type="submit">로그인</button>
+                <div class="idsch cf">
+                    <!-- id명과 label안에 이름이 같아야함 -->
+                    <input type="checkbox" id="idsave"><label for="idsave">아이디저장</label>
+                    <input type="checkbox" id="seccon"><label for="seccon">보안접속</label>
+                </div>
+                <div class="idpwfind">
+                    <a href="#">아이디/비밀번호 찾기</a>
+                    <a href="#">회원가입</a>
+                    <a href="#">비회원 주문조회</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- 보안이 필요한 값을 전달할 땐 post/ 아닐땐 get -->
+    <form action="입력값을 받을 서버프로그램 파일경로" method="post" name="memoForm" id="memoForm">
+        <fieldset>
+            <legend>메모박스</legend>
+            <textarea name="memo" id="memo" 
+            placeholder="10글자 이내로 메세지를 적어주세요." maxlength="10"></textarea>
+        </fieldset>
+    </form>
+</body>
+</html>

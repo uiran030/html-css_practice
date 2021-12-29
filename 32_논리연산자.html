@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>논리연산자</title>
+</head>
+<body>
+    
+    <script>
+        // &&:논리곱, and 연산자, 비교값이 전부 다 참일때만 참 (하나라도 거짓이면 거짓)
+        // ||:논리합, or 연산자, 비교값이 전부 다 거짓일때만 거짓 (하나라도 참이면 참)
+        //  !:부정, not 연산자, 비교값의 반대 (비교값이 true면 false로 결과값 나옴)
+        var x=false;
+        var y=true;
+        var z=true;
+        var result1 = x && y && z;
+        document.write(result1+"<br>")
+
+        var a=false;
+        var b=true;
+        var c=true;
+        var result2 = a || b || c;
+        document.write(result2+"<br>")
+
+        var result3 = x || y && z
+        //         false||  true
+        document.write(result3+"<br>")
+
+        var result4 = !b
+        document.write(result4+"<br>")
+
+        //변수에 저장된 값이 0, "", undefined(선언만 하고 값을 지정하지않은 상태), null이면 false
+        //위의 값들이 아닌 값일 때는 true
+        var i=10, j=20, k="정의란", L=0, M="" , N, O=null;
+        var result5 = i==10 && j!==30  //우선순위 비교연산자>논리연산자
+        document.write(result5+"<br>")
+
+        var result6 = i===10 || y===30
+        document.write(result6+"<br>")
+        
+        document.write("N변수의 논리값은 "+Boolean(N)+"<br>");
+        document.write(N)
+        // 우선순위에 대한 표 책 p.76
+    </script>
+</body>
+</html>

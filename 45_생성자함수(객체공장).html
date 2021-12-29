@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성자함수</title>
+</head>
+<body>
+    <!-- 
+        function 함수명(객체명 : 첫글자는 대문자) (매개변수) { 
+            this.속성명 = 매개변수
+        }
+        var 변수 = new 생성자함수명(값)               ->활용하기위해 var 필요
+    -->
+
+    <script>
+        function Car(model, speed, color){          //Car라는 객체가 만들어진 것
+            this.model = model;                     
+            this.speed = speed;
+            this.color = color;
+            // this.break = function(){
+            //     this.speed -= 10
+            //     return this.speed
+            // };
+            // this.accel = function(){
+            //     this.speed += 10
+            //     return this.speed
+            // };
+        }
+
+        Car.prototype.break = function(){            //prototype=공통구역이라고 이해하면됨.
+                this.speed -= 10
+                return this.speed
+            };
+        Car.prototype.accel = function(){
+                this.speed += 10
+                return this.speed
+            };
+        var myCar = new Car("BMW", 100, "black")
+        myCar.accel = myCar.accel()
+        myCar.break = myCar.break()
+        for (let i in myCar) {
+            document.write(i+" : "+myCar[i]+"<br>")
+        }
+
+        document.write("<br>")
+
+        var yourCar = new Car("Benz", 150, "gray")
+        yourCar.accel = yourCar.accel()
+        yourCar.break = yourCar.break()
+        delete yourCar.color;
+        for(let i in yourCar) {
+            document.write(i+" : "+yourCar[i]+"<br>")
+        }
+        // document.write(myCar.accel())
+        // document.write(myCar.break())
+        // document.write(yourCar.break())
+    </script>
+</body>
+</html>

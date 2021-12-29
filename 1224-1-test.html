@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+    
+    <script>
+        var age = prompt("아동, 청소년, 성인 중 입력하시오","")
+        switch(age){
+            case "아동" : document.write(`${age} : 입장료 무료`); break;
+            case "청소년" : document.write(`${age} : 입장료 2,000원`); break;
+            case "성인" : document.write(`${age} : 입장료는 5,000원`); break;
+            default : document.write(`정확한 값을 입력해 주세요.`)
+        }
+    </script>
+</body>
+</html>

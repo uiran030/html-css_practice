@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날짜객체 Date() (p.178~187)</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <form action="#">
+        생년월일 : Year : <input type="text" id="year"> Month : <input type="text" id="month"> Day : <input type="text" id="day">
+        <button type="button" onclick="survivalCalc()">계산</button>
+    </form>
+    <p id="survival"></p>
+
+    <script>
+        //살아온 날 수 구하기
+        function survivalCalc() {
+            var now = new Date()
+            //getTime(): 1970년 1월 1일 자정부터 지정한 날짜까지 경과한 밀리초를 구해줌
+            var today_mili = now.getTime()         // p.182 날짜를 밀리초단위로 바꿔줌
+            var both_year = parseInt(document.getElementById('year').value)
+            var both_month = parseInt(document.getElementById('month').value)-1
+            var both_day = parseInt(document.getElementById('day').value)
+            var myBoth = new Date()
+            myBoth.setFullYear(both_year, both_month, both_day)
+            console.log(myBoth)
+            var myBoth_mili = myBoth.getTime()
+            var diff = myBoth_mili - today_mili  
+            var survival_day = diff/1000/60/60/24
+            document.getElementById('survival').textContent = survival_day
+        }
+
+
+
+        //전자시계
+        function autoclock(){
+            var now = new Date()
+        //console.log(now)
+        var year = now.getFullYear()
+        var month = now.getMonth()+1           //month는 0부터 시작해서 +1을 꼭 붙여줘야함.
+        var day = now.getDate()
+        var weekend = now.getDay()             //0=일요일, 1=월요일, ...,6=토요일
+        switch (weekend) {
+            case 0 : weekend = "일"; break;
+            case 1 : weekend = "월"; break;
+            case 2 : weekend = "화"; break;
+            case 3 : weekend = "수"; break;
+            case 4 : weekend = "목"; break;
+            case 5 : weekend = "금"; break;
+            case 6 : weekend = "토"; break;
+        }
+        var hour = now.getHours()
+        var minute = now.getMinutes()
+        var second = now.getSeconds()
+        document.getElementById('demo').textContent = `${year}년 ${month}월 ${day}일 ${weekend}요일 ${hour}:${minute}:${second}`
+        }
+        autoclock()
+        setInterval(autoclock, 1000);
+
+
+        //
+    </script>
+    
+</body>
+</html>

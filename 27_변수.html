@@ -30,8 +30,40 @@
         // 변수는 마지막에 저장한 값만 1개만 남아 있음
         document.write("x="+x+"<br>")
         document.write("y="+y+"<br>")
-        document.write("z="+z)
+        document.write("z="+z+ "<br>")
 
+
+        //변수 선언 : var, const, let
+
+        //const (상수, 변하지않는 값을 저장할 때, 값을 변화시키면 오류 생김)
+        const jeong = "정의란"
+        // jeong = "홍길동" 
+        document.write(jeong+"<br>")
+
+        //let(블록변수)
+        let park = "장나라"
+        for (let i=1; i<=3; i++){
+            let park = "홍길동"
+            park = "홍나라"
+            document.write(park+"<br>")
+        }
+        document.write(park+"<br>")
+
+        let choi = "최길동"
+        {
+            let choi = "최나라"
+            document.write(choi+"<br>")
+        }
+        document.write(choi+"<br>")
+
+        //전역변수와 지역변수 구분하기
+        var kk='정의란';              //전역변수 : 전역에서 사용됨
+        function kims(){
+            let kk = "홍길동";         //지역변수 : 함수내부에서만 사용됨
+            document.write(kk+"<br>")
+        }
+        kims();
+        document.write(kk+"<br>")
     </script>
 </body>
 </html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 조건문</title>
+</head>
+<body>
+    
+    <script>
+        //현재시간이 22시 이후라면 "쥬스를 마신다..", "가족에게 안부전화를 한다."를 출력하고,
+        //아직 22시 전이라면 "TV를 본다"를 출력하시오.
+        //if (조건식) {조건식이 참일때 수행할 내용} else {조건식이 거짓일 때 수행할 내용}
+        var time = 23;
+        if (time > 22){
+            document.write("쥬스를 마신다...<br>")
+            document.write("가족에게 안부전화를 한다.<br>")
+        } else{
+            document.write("TV를 본다. <br>")
+        }
+
+
+        //나이(age)가 13살 이상이면 비용(fee)을 2,000원 출력하시오.
+        // var age, fee;
+        // age=parseInt(prompt("나이를 입력하세요(숫자만)",""))
+        // var fee;
+        // if (age >=13){
+        //     fee="2,000원";
+        //     document.write(fee+"<br>")
+        //}
+        // 거짓일때 수행할 내용이 없으면 else를 생략하면 됨.
+
+
+        //나이가 13~19세이면 입장료 4,000원을 받고,
+        //13세 미만이거나 65세 이상이면 2,000원 받고,
+        //나머지는 6,000원을 받으시오.
+        //나이는 prompt창에서 입력받으시오.
+        //parseInt()는 문자를 숫자로 바꿔주는 메서드임
+
+        //parseInt("13세"):13
+        //Number("13세"):NaN (Not a Number)
+        //Number("13") : 13
+        // age=Number(prompt("나이를 입력하세요(숫자만)",""))
+        // if (age>=13 && age<20){
+        //     fee="4,000원"
+        // } else if (age<13 || age>=65){
+        //     fee="2,000원"
+        // } else {
+        //     fee="6,000원"
+        // }
+        // document.write("나이는 "+age+"세이며, 입장료는 "+fee+"입니다.")
+
+
+        //프롬프트창에서 html,css,js 세과목 점수를 입력받아 평균을 구한 후,
+        //세과목의 평균이 60점 이상이면 "합격", 미만이면 "불합격"을 출력하시오.
+        //평균이 60점 이상이라도 과목별 점수가 40점 미만이면 "불합격"을 출력하시오.
+        // var html,css,js,avg=0, comment="";
+        // html=parseInt(prompt("html 점수",""))
+        // css=parseInt(prompt("css 점수",""))
+        // js=parseInt(prompt("js 점수",""))
+        // avg = (html+css+js)/3
+
+        //평균이 60점 이상이면서, 한과목이라도 40점 미만이면 "불합격", 그렇지않으면 "합격"
+        // if(avg>=60 && html>=40 && css>=40 && js>=40){
+        //     comment="합격"
+        // } else{
+        //     comment="불합격"
+        // }
+        // document.write(`평균:${avg}(html:${html}, css:${css}, js:${js}), ${comment}`)
+
+        //어떤 수가 짝수인지 아닌지를 판별하는 프로그램 작성하시오.
+        //어떤 수를 2로 나눈 나머지가 0이면 짝수, 그렇지 않으면 홀수
+        var num=7;
+        var result="";
+        if(num%2 === 0){
+            result="짝수"
+        } else{
+            result="홀수"
+        }
+        document.write (`${num}은 ${result}입니다.`)
+    </script>
+</body>
+</html>

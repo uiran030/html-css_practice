@@ -7,10 +7,21 @@
     <title>Text style</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Nanum+Pen+Script&display=swap');
-        /* font-family: 'East Sea Dokdo', cursive;
-        font-family: 'Nanum Pen Script', cursive; */
+        /* 
+            font-family: 'East Sea Dokdo', cursive;
+            font-family: 'Nanum Pen Script', cursive; 
+        */
 
-        body{font-family: 'Nanum Pen Script', 'cursive'; font-size:20px;}
+        /* 웹폰트 변환시켜서 적용하는 방법 */
+        @font-face{
+            font-family: 'trana';  /*사용자 정의로 이름 정하는 것임*/
+            src:local('trana'), 
+            url('./font/trana.eot'), 
+            url('./font/trana.woff') format('woff'), 
+            url('./font/trana.ttf') format('truetype');
+        }
+
+        body{font-family: 'trana', 'sans-serif'; font-size:20px;}
         /* family:'나눔 고딕', '맑은고딕', '굴림'; ->여러개 적어두는 이유는 1순위 나눔 고딕으로 적용하되, 
         없으면 맑은 고딕으로 없으면 굴림체로 변경되도록 하기위함. (마지막은 모든 컴퓨터에 기본으로 있는 흔한 글씨체로 설정해야함)*/
         .accent{

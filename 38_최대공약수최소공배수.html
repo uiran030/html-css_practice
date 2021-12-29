@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최대공약수, 최소공배수</title>
+</head>
+<body>
+    
+    <!--
+        약수: 어떤 수를 나누어 떨어지게 하는 자연수 (약수중에 제일 작은 수는 1이며, 제일 큰 수는 자기자신)
+        최대공약수 : 두 수의 공통인 약수 중 가장 큰 수
+        문제) 5와 10의 최대공약수를 구하시오.
+        5의 약수(1,5), 10의 약수(1,2,5,10) / 최대 공약수 5
+    -->
+    <script>
+        // var num1=5;
+        // for(let i=1; i<=5; i++){
+        //     if(num1%i===0){
+        //         document.write(i+" ")
+        //     }
+        // }
+        // document.write("<br>")
+
+        // var num2=10;
+        // for(let i=1; i<=10; i++){
+        //     if(num2%i===0){
+        //         document.write(i+" ")
+        //     }
+        // }
+        // document.write("<br>")
+
+        //배열선언
+        //var num = [값1,값2...]
+        //Math.min.apply (num, 배열명) : 배열 안에서 제일 작은 수를 찾아내는 메서드
+        //Math.max.apply (num, 배열명) : 배열 안에서 제일 큰 수를 찾아내는 메서드
+        
+        // 최대공약수
+        var num = [5,10]
+        var mini = Math.min.apply(null, num)
+        var gcd;
+        console.log(mini)
+        for (let i=1; i<=mini; i++){
+            if(num[0]%i===0 && num[1]%i===0){
+            gcd = i
+            }
+        }
+        document.write(`${num[0]}과 ${num[1]}의 최대공약수는 ${gcd} <br>`)
+
+        // 최소공배수 : 두 수의 배수에서 공통이 되는 제일 작은 수
+        //1~큰수 까지 for 문을 돌려서 두 수로 나누었을 때 나머지가 0이 되는 최초의 값
+        var maxnum = Math.max.apply(null, num)
+        console.log(maxnum)
+        var lcm=1;
+        for (let i=1; i<=maxnum; i++){
+            if (i%num[0]===0 && i%num[1]===0){
+                lcm=i
+                break
+            }
+        }
+
+        //while문으로 변경
+        // while(true){
+        //     if (lcm%num[0]===0 && lcm%num[1]===0){
+        //         break
+        //     }
+        //     lcm++
+        // }
+        document.write(`${num[0]}과 ${num[1]}의 최소공배수는 ${lcm}`)
+    </script>
+</body>
+</html>

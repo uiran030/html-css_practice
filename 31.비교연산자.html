@@ -20,9 +20,10 @@
         var result3 = x==y
         document.write(result3+"<br>")
         
-        var a=10, b="10"
-        var result4 = a===b //==에서는 true이지만 ===에서는 자료형까지 비교해서 false  (정확한 비교를 위해 ===많이씀)
+        var a=10, b="10",c=true
+        var result4 = a!==b //==에서는 true이지만 ===에서는 자료형까지 비교해서 false  (정확한 비교를 위해 ===많이씀)
         document.write(result4+"<br>")
+        document.write(typeof(c))
     </script>
 </body>
 </html>

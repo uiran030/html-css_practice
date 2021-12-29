@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch 조건문</title>
+</head>
+<body>
+    
+    <script>
+        //switch(조건값){
+        //    case 조건값1 : 실행문1 ; break;
+        //    case 조건값2 : 실행문2 ; break;
+        //    default : 예외실행문;
+        //}
+
+        //프롬프트 창에서 학점을 입력받아
+        // 다음과 같이 "당신의 학점은 A입니다."를 출력해 보세요.
+        var grade = prompt("학점을 입력하시오 (A~F)","")
+        switch(grade){
+            case "A" : document.write(`당신의 학점은 ${grade}입니다.`); break;
+            case "B" : document.write(`당신의 학점은 ${grade}입니다.`); break;
+            case "C" : document.write(`당신의 학점은 ${grade}입니다.`); break;
+            case "D" : document.write(`당신의 학점은 ${grade}입니다.`); break;
+            default : document.write(`당신의 학점은 F입니다.`); break;
+        }
+
+        // 위 문제를 if조건식으로 변경하기
+        // if (grade==="A"){
+        //     document.write(`당신의 학점은 ${grade}입니다.`)
+        // } else if (grade==="B"){
+        //     document.write(`당신의 학점은 ${grade}입니다.`)
+        // } else if (grade==="C"){
+        //     document.write(`당신의 학점은 ${grade}입니다.`)
+        // } else if (grade==="D"){
+        //     document.write(`당신의 학점은 ${grade}입니다.`)
+        // }else{  
+        //     document.write(`당신의 학점은 F입니다.`)
+        // }
+    </script>
+</body>
+</html>

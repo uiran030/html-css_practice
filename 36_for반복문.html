@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for 반복문</title>
+</head>
+<body>
+    
+    <script>
+        //for(초기값; 종료값;증감값){
+        //    
+        //}
+        // for (let i=1; i<=10; i++) {
+        //     document.write(i+"Hello Javascript World...! <br>")
+        // }
+        // document.write("Finish...! <br>")
+
+        for(let i=10; i>=1; i--){
+            document.write(i+"Hello Javascript World...! <br>")
+        }
+        document.write ("Finish...! <br>")
+
+        //2단만 출력하기
+        for (let i=1; i<=9; i++){
+            let mul = 2*i
+            document.write(`2 x ${i} = ${mul} <br>`)
+        }
+
+        //1~10까지의 합을 구하시오.
+        var sum=0;
+        for (let i=1; i<=10; i++){  //i=1,2,3,...,10,11
+            sum += i             //sum=0+1+2+3+...+10
+            //sum = sum+i (위에는 복합대입연산자로 더 편하게 작성)
+        }
+        document.write("1~10까지의 합은 "+sum+"입니다.<br>")
+
+        //1~10까지 수 중에서 짝수들만 출력하시오.
+        for (let i=1; i<=10; i++){
+            if(i%2 === 0){
+                document.write(i+"<br>")
+            }
+        }
+
+        //1~10까지 수 중에서 3의 배수들만 출력하시오.
+        for (let i=1; i<=10; i++){
+            if(i%3 === 0){
+                document.write(i+"<br>")
+            }
+        }
+
+        //&&:모든, 전부, 이면서, 동시에, 이고
+        //||:또는, 혹은, 이거나, 일부만
+        //1~100까지 수 중에서 3의 배수이면서 짝수인 수들만 출력하시오.
+        //단, 50까지만 출력하고 중간에 for문을 벗어나게 하고 (break)
+        //20~30까지 수는 출력에서 제외시키시오 (continue)
+        for (let i=1; i<=100; i++){
+            if (i%3===0 && i%2===0){
+                if(i>50) {break}
+                if(i>=20 && i<=30){
+                    continue
+                }
+                document.write(i+"<br>")
+            }
+        }
+
+        //2단 ~ 9단까지 출력하기
+        for (let i=2; i<=9; i++){       //i=2,3,4,5,...,9
+            for (let j=1; j<=9; j++){   //j=1,2,3,..,9,10
+                let mul=i*j             //mul=2*1,2*2,2*3,...,2*9
+                document.write(`${i} x ${j} = ${mul} <br>`)
+            }
+        }
+
+        //세 과목 (html,css,js) 점수를 프롬프트 창에서 입력받아
+        //평균을 구한 후, 평균이 60점 이상이면서, 모든 과목이 40점 이상이면 "합격",
+        //그렇지않으면 "불합격"을 출력하시오.
+        var subject = []
+        var total = 0
+        for (let i=1; i<=3; i++){
+            subject[i] = parseInt(prompt("점수입력",""))
+            total = total + subject[i]
+        }
+        var avg = total / 3
+        var comment = ""
+        if (avg >=60 ){
+            for(let i=1; i<=3; i++) {
+                if (subject[i]>=40){
+                    comment="합격"
+                } else {
+                    comment = "불합격"
+                    break
+                }
+            }
+            document.write(comment)
+        } else{
+            document.write("불합격")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while 반복문</title>
+</head>
+<body>
+    <script>
+        //var i=1; (초기값)
+        //while (i<=10 (종료값조건)){
+        //  i++(증감값)    
+        //}
+
+        //1~10까지 합을 구하는 문제를 while문으로 작성하시오.
+    var i=1;
+    var sum=0;
+    while(i<=10){
+        sum+=i;
+        i++;
+    }
+    document.write(`1부터 10까지의 합은 ${sum} <br>`)
+
+    //10~100까지 수 중에서 짝수만 출력하는 프로그램을 do~while 문으로 작성하시오.
+    //초기값
+    //do {
+    //  실행문
+    //  증감값
+    //} while(종료값조건)
+    var j=101;
+    do{
+        if(j%2!==0){
+            document.write(j+"<br>")
+        }
+        j++
+    } while(j<=100)
+    </script>
+</body>
+</html>

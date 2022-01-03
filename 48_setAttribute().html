@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>setAttribute("속성명", "속성값")</title>
+    <style>
+        .red {color:red;}
+        .font50 {font-size: 50px;}
+        .bgpink {background: pink;}
+    </style>
+</head>
+<body>
+    <!-- 
+        setAttribute() : 태그(element, 요소)의 속성을 변경할 때 사용
+        ex) setAttribute("속성명", "속성값") : setAttribute("class", "클래스명")
+        className : class 속성값만 변경하는 속성
+        ex)className = "클래스명"
+    -->
+    <h1 class="red">정의란</h1>
+    <button onclick="change()">버튼</button>
+
+    <!-- 버튼을 클릭했을 때 h1에 클래스 .font50과 .bgpink를 추가하시오 -->
+    <script>
+        var h1 = document.querySelector("h1")
+        function change(){
+            // h1.setAttribute("class", "red font50 bgpink")
+            h1.className += " font50 bgpink"      //반드시 " 다음속성명" 한칸 띄어쓰기 필요
+        }
+    </script>
+</body>
+</html>

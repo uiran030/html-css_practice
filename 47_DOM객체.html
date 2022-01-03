@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model(DOM) 객체 (p.246~256)</title>
+</head>
+<body>
+    
+    <h1 id="irum" onclick="change1()">정의란</h1>
+    <h2 class="hong" onclick="change2()">홍길동</h2>
+    <p onclick="change3()">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Quae repudiandae beatae maiores voluptatem harum doloremque delectus 
+        nihil libero dolorem perferendis, ducimus iure tempore dolor, 
+        numquam excepturi fuga! Eos, reprehenderit? Similique.
+    </p>
+    <div>
+        querySelector()는 여러개 중에 첫번째 하나만 지목함 <br>
+        querySelectorAll() [인덱스번호]는 여러개 중에 몇번째인지 [인덱스번호]를 표시해야 함.
+    </div>
+    <ul class="depth1">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+    </ul>
+
+    <script>
+        //아이디선택자 : document.getElementById("아이디명")
+        //클래스선택자 : document.getElementsByClassName("클래스명")
+        //태그선택자 : document.getElementsByTagNameNS("태그명")
+        //다용도선택자 : document.querySelector("#아이디명", ".클래스명", "태그명")
+        //innerHTML : 태그가 있는 내용으로 수정하고자 할 때
+        //textContent : 태그 없는 일반 내용으로 수정하고자 할 때
+        // var irum = document.querySelector("#irum")
+        // var hong = document.querySelector(".hong")
+        // var ptag = document.querySelector("p")
+        var irum = document.querySelector("#irum")
+        var hong = document.querySelectorAll(".hong")
+        var ptag = document.querySelectorAll("p")[0]
+        var elLi = document.querySelectorAll(".depth1 > li")
+
+        // var irum = document.getElementById("irum")
+        // var hong = document.getElementsByClassName("hong")[0]
+        // var ptag = document.getElementsByTagName("p")[0]
+        console.log(irum.textContent)
+        console.log(hong[0].textContent)
+        console.log(ptag.innerHTML)
+        function change1() {
+            irum.textContent = "장나라"              //속성값을 수정할때
+            console.log (irum.textContent)           //속성값을 추출할때
+        }
+        function change2(){
+            hong.textContent = "장길동"
+            console.log(hong[0].textContent)
+        }
+        function change3(){
+            ptag.innerHTML = "<a href='http://www.naver.com'>네이버</a>"
+            console.log(ptag.innerHTML)
+        }
+
+        // .depth1에 속해있는 <li>안에 있는 내용을 <a>태그로 감싸시오.
+        for (let i=0; i<3; i++) {
+            let text = elLi[i].textContent
+            elLi[i].innerHTML = `<a href='#'>${text}</a>`
+        }
+    </script>
+</body>
+</html>

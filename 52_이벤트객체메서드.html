@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트객체메서드 (중요/51번은 많이 안쓴다고하심)</title>
+    <style>
+        div { background-color: red; padding:30px; }
+        a { background-color: green; display: inline-block; padding:30px; }
+    </style>
+
+</head>
+<body>
+    <!-- 
+        preventDefault() : 기본 이벤트의 실행을 막아줌 (a태그, type이 submit)
+        stoPropagetion() : 이벤트 버블링(전파)을 막아줌
+    -->
+    <div>
+        <a href="http://www.naver.com">네이버</a>
+    </div>
+    <form action="" method="post" name="join">
+        <input type="text">
+        <button type="submit">전송</button>
+    </form>
+
+    <script>
+        var ela = document.querySelector('a')
+        ela.onclick = function(e){
+            // function(매개변수) - 매개변수는 뭐라고 적든 상관없음. (현재는 event대신 e라고 적음)
+            // e.preventDefault()
+            e.stoPropagetion()
+            // return false를 쓰면 preventDefault 막아짐
+            this.style.background = "blue"
+            return false
+        }
+
+        var eldiv = document.querySelector('div')
+        eldiv.onclick = function(){
+            this.style.background = "pink"
+        }
+
+        var eljoin = document.join
+        // document.바로 name명을 붙이면 '그 네임인 애들'을 전부 말하는 것
+        eljoin.onsubmit = function(e){
+            // e.preventDefault()
+            return false
+        }
+    </script>
+</body>
+</html> 

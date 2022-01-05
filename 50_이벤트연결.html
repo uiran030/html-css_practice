@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 연결하기 (p.268)</title>
+    <style>
+        h1 {border: 10px solid red; padding:20px;}
+        p{ background-color: lime; padding:10px;}
+    </style>
+</head>
+<body>
+    <!-- 
+        1. 인라인이벤트 모델 : html 요소에 직접 이벤트를 연결함
+        2. 기본 이벤트 모델 : 이벤트를 연결할 html 요소를 취득한 후 이벤트를 
+        객체의 메서드 형식으로 연결함
+        3. 표준 이벤트 모델 : 객체.addEventListener('이벤트명', 함수)의 방식으로 
+        이벤트를 연결함
+    -->
+    <!-- 
+        마우스 이벤트 종류 : click, dblclick, mouseover/mouseout,  mouseenter/mouseleave, 
+        mouseup(눌렀다가 땔때), mousedown(누를때 over과 같음), mousemove
+        폼 이벤트 종류 : focus, blur, change, submit, reset, select 
+        (마우스로 드레스해서 블록잡기)
+        키 이벤트 종류 : keydown, keyup, keypress (글씨를 타이핑하는 이벤트)
+        윈도우 이벤트 종류 : load, abort, resize, scroll
+    -->
+    <h1>
+        <p>정의란</p>
+    </h1>
+    <!-- <button type="button" onclick="changeText()">클릭</button> (인라인이벤트방식) -->
+    <button type="button" id="btn1">클릭</button>
+    <div id="memo"></div>
+
+    <script>
+        function changeText(){
+            h1.textContent = "마우스오버 이벤트가 발생했습니다."
+        }
+        function changeColor(){
+            h1.style.color = "red"
+        }
+
+        var h1 = document.querySelector("h1")
+        var ptag = document.querySelector("p")
+        var btn1 = document.querySelector("#btn1")
+        // function changeText(){
+        //     h1.textContent = "클립 이벤트가 발생했습니다."
+        // } (인라인이벤트방식)
+
+        //기본이벤트모델은 객체에 동일한 이벤트가 마지막것 하나만 적용함.
+        //이름있는 함수를 이벤트에 연결할 때는 ()를 붙이면 안됨.
+        // btn1.onclick = changeText
+        // btn1.onclick = chageColor
+        // 두개의 function을 주면 아래꺼만 수행함 
+
+        //표준이벤트모델은 여러번 적용이 가능함
+        //이름있는 함수를 이벤트에 연결할 때는 ()를 붙이면 안됨.
+        btn1.addEventListener('mousemove', changeText)
+        // btn1.addEventListener('click', changeColor)
+        h1.addEventListener('mouseenter', function(){
+            document.querySelector("#memo").textContent = "h1 마우스엔터"
+        })
+        ptag.addEventListener('mouseenter', function(){
+            document.querySelector("#memo").textContent = "p 마우스엔터"
+        })
+    </script>
+</body>
+</html>

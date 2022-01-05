@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소와 속성의 생성 및 삭제 (복잡해서 잘 안쓰는 편)</title>
+    <style>
+        .box { 
+            position:fixed; 
+            left: 100px; top:10px;
+            width:200px; 
+            height: 200px;
+            background-color: #718c00;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        createElement() : 요소를 생성하는 메서드
+        createTextNode() : 텍스트를 생성하는 메서드
+        appendChild() : 요소를 부모의 마지막 자식의 관계로 만들어주는 메서드
+                        부모.appencChild(생성한자식)
+        insertBefore() : 요소를 바로 앞(형제)에 추가하는 메서드
+                        부모.insertBefore(생성한자식, 지정한형제요소)
+    -->
+
+    <button id="bt">클릭</button>
+
+    <script>
+        var bt = document.querySelector("#bt")
+        bt.onclick = popup;
+
+        function popup(){
+            // document.body.innerHTML = `<div class="box"><p>자바스크립트</p></div>` (한줄요약은 되지만 버튼이 사라짐)
+            var div = document.createElement('div')
+            var p = document.createElement('p')
+            var txt = document.createTextNode('자바스크립트')
+            var body = document.body
+            p.appendChild(txt)
+            div.appendChild(p)
+            body.appendChild(div)
+            div.className = "box"
+
+            var h1 = document.createElement('h1')
+            var txt1 = document.createTextNode('정의란')
+            h1.appendChild(txt1)
+            body.insertBefore(h1, bt)
+        }
+    </script>
+</body>
+</html>

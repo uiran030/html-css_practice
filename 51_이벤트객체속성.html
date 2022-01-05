@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트객체 속성</title>
+    <style>
+        #bt { padding:50px; margin:50px; }
+        #area {width: 300px; height: 300px; background-color: green; margin:50px;}
+    </style>
+</head>
+<body>
+    <!-- 
+        target : 이벤트를 발생시킨 객체를 반환
+        type : 이벤트의 이름을 반환
+        clientX : 이벤트가 발생한 X좌표값 반환(브라우저 기준)
+        clientY  : 이벤트가 발생한 Y좌표값 반환(브라우저 기준)
+        screenX : 이벤트가 발생한 X좌표값 반환 (모니터 기준)
+        screenY : 이벤트가 발생한 Y좌표값 반환 (모니터 기준)
+        button : 마우스 왼쪽(0), 가운데(1), 오른쪽(2) 버튼값 반환
+    -->
+
+    <button id="bt">클릭</button>
+    <div id="area">
+        여기에 마우스 왼쪽, 가운데, 오른쪽 버튼 클릭
+    </div>
+
+    <script>
+        var bt = document.querySelector("#bt")
+        var area = document.querySelector("#area")
+
+        // 기본이벤트 모델
+        bt.onclick = function(event){
+            area.style.background = "red"
+            console.log(event.target)
+            // 속성의 값을 출력할때는 객체.속성명
+            console.log(event.type)
+            console.log(event.clientX, event.clientY)
+            console.log(event.screenX, event.screenY)
+        }
+
+        // 표준이벤트 모델
+        area.addEventListener('mousedown', function(event){
+            console.log(event.button)
+            // console.log(event)  이벤트에 쓰는 속성들 전체적으로 볼때 -쓰는데 배운것만 알아도됨.
+        })
+    </script>
+</body>
+</html>

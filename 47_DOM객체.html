@@ -60,11 +60,28 @@
             console.log(ptag.innerHTML)
         }
 
+        // 1.for문
         // .depth1에 속해있는 <li>안에 있는 내용을 <a>태그로 감싸시오.
-        for (let i=0; i<3; i++) {
-            let text = elLi[i].textContent
-            elLi[i].innerHTML = `<a href='#'>${text}</a>`
-        }
+        // for (let i=0; i<3; i++) {
+        //     let text = elLi[i].textContent
+        //     elLi[i].innerHTML = `<a href='#'>${text}</a>`
+        // }
+
+        //위 for문 for in문으로 변경하기
+        //2. for in문
+        // for (let i in elLi){
+        //     let text = elLi[i].textContent
+        //     elLi[i].innerHTML = `<a href='#'>${text}</a>`
+        // }
+
+        //forEach문으로 변경
+        //3. forEach 문
+        elLi.forEach (function(value, index){
+            // console.log(value)
+            let text = value.textContent
+            elLi[index].innerHTML = `<a href='#'>${text}</a>`
+        })
+
     </script>
 </body>
 </html>

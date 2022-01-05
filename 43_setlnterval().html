@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval(), clearInterval() (p.238)</title>
+</head>
+<body>
+    <p>A script on this page starts this clock:</p>
+    <p id="demo"></p>
+    <script>
+        function myTimer(){
+            var now = new Date();
+            document.getElementById('demo').innerHTML = now.toLocaleTimeString()
+        }
+        myTimer()
+
+        setInterval(myTimer, 1000)
+        // setInterval(함수명, 밀리초) : 밀리초단위 간격으로 반복해서 실행하는 함수
+
+
+        //clearInterval 작업으로 어느 시간이 되면 자동으로 돌아가는게 멈추게 하기위함.
+        // function myTimer(){
+        //     var now = new Date();
+        //     var minute = now.getMinutes()
+        //     if (minute >= 15){
+        //         clearInterval(auto)            //auto에 저장된 setInterval() 함수를 멈추게함.
+        //     }
+        //     document.getElementById('demo').innerHTML = now.toLocaleTimeString()
+        // }
+        // myTimer()
+
+        // var auto = setInterval(myTimer, 1000)
+        //clearInterval 작업을 위해서는 setInterval을 함수로 묶어야함
+    </script>
+</body>
+</html>

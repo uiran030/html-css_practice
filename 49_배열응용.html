@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열메서드 응용문제</title>
+    <style>
+        #content {max-width: 500px; margin:0 auto;}
+        #content span {color:pink}
+    </style>
+</head>
+<body>
+
+    <div id="content">
+        <!-- <ul>
+            <li>김은영<span>님 환영합니다.</span></li>
+            <li>장나라<span>님 환영합니다.</span></li>
+            <li>홍길동<span>님 환영합니다.</span></li>
+        </ul> -->
+    </div>
+    <form action="#">
+        고객명 : <input type="text" id="irum">
+        <button type="button" onclick="add()">고객추가</button>
+        <button type="button" onclick="remove()">고객삭제</button>
+        <button type="button" onclick="modify()">고객수정</button>
+
+    </form>
+    
+    <script>
+        var students = ['김은영', '장나라', '홍길동', '장길동', '김나라']
+        var content = document.querySelector("#content")
+        var irum = document.querySelector("#irum")
+
+        function clientList() {
+            var list = "<ul>"
+            // for (let i in students){
+            //     let irum = students[i]
+            //     list += `<li>${irum}<span>님 환영합니다.</span></li>`
+            // }
+            // students.forEach(function(value, index){
+            //     // 매개변수는 딱 3개까지만 쓸수있음 (3개는 잘 안쓴다고하심)
+            //     list += `<li>${index+1}. ${value}<span>님 환영합니다.</span></li>`
+            // })
+            // for in 문 or forEach문으로 둘 중 하나로 제작 가능
+
+            var newlist = students.filter(function(value){
+                return typeof(value)==='string'
+            })
+            newlist.forEach(function(value, index){
+                list += `<li>${index+1}. ${value}<span>님 환영합니다.</span></li>`
+            })
+            list += "</ul>"
+            content.innerHTML = list;
+        }
+        clientList()
+
+        function add(){
+            let newirum = irum.value
+            students.push(newirum)
+            clientList()
+        }
+
+        function remove(){
+            students.pop()
+            clientList()
+        }
+
+        function modify(){
+            students.splice(students.indexOf('홍길동'), 1, '정의란')
+            clientList()
+        }
+
+        var base = [10, 20, 30]
+        // map - 배열에만 쓸수있는 메서드
+        var upprice = base.map(function(value, index, array){
+            if (index===1){
+                value +=100
+            }
+            return value
+        })
+        console.log(upprice)
+
+        // filter - 걸러낼때 (ex-숫자값만 골라내기 or 숫자값만 있을 땐 10이상의 숫자만 골라내기)
+        var data = ['javascript', 20, 30, 'jQuery']
+        var num = data.filter (function(value){
+            let kim = typeof(value)
+            return kim==='string'
+            // string이면 문자값, number이면 숫자값
+        })
+        console.log(num)
+
+    </script>
+
+</body>
+</html>

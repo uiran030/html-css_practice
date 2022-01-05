@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택한 요소의 현재 위치를 기준으로 요소를 선택함</title>
+    <style>
+        *{border:1px solid black;}
+        #gnb > ul > li > ul {display: none;}
+    </style>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"></script> -->
+    <!-- 개발단계에서는 직접 다운받은 주소를 쓰지만 배포할때는 cdn을 쓰는게 좋음 -->
+</head>
+<body>
+    <!-- 
+        parentNode : 선택된 요소의 부모 노드를 선택함.
+        childNodes : 선택된 요소의 자식 노드들을 선택함. (공백포함)
+        children : 선택 요소의 자식 노드들을 선택함.
+        nextSibling : 선택된 요소의 다음 형제 노드를 선택함. (공백포함)
+        nextElementSibling : nextsibling과 의미는 똑같지만 공백을 포함하지않음.
+        previousSibling : 선택된 요소의 이전 형제 노드를 선택함. (공백포함)
+        previousElementSibling : previousSibling과 의미는 똑같지만 공백을 포함하지않음.
+        firstChild : 선택된 요소의 첫 번째 자식 노드를 선택함. (공백포함)
+        firstElementChild : firstChild와 의미는 같지만 공백을 포함하지않음.
+        lastChild : 선택된 요소의 마지막 자식 노드를 선택함. (공백포함)
+        lastElementChild : lastChild와 의미는 같지만 공백을 포함하지않음.
+    -->
+
+    <nav id="gnb">
+        <ul>
+            <li>내용1
+                <ul>
+                    <li>서브1</li>
+                    <li>서브2</li>
+                    <li>서브3</li>
+                </ul>
+            </li>
+            <li>내용2
+                <ul>
+                    <li>서브1</li>
+                    <li>서브2</li>
+                    <li>서브3</li>
+                </ul>
+            </li>
+            <li>내용3
+                <ul>
+                    <li>서브1</li>
+                    <li>서브2</li>
+                    <li>서브3</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        // var gnb = document.querySelector('#gnb')
+        // // gnb.parentNode.style.background = "red"
+        // // gnb.childNodes[1].style.background = "red"           //<ul>을 가리킴
+        // // childNodes는 공백하나를 0 ul태그1번 공백또하나를3번으로 보기때문에 햇갈려서 잘 안씀.
+        // // gnb.children[0].style.background = "red"             //<ul>을 가리킴
+        // // gnb.children[0].children[1].nextElementSibling.style.background = 'red'
+        // // gnb.children[0].children[1].previousElementSibling.style.background = 'red'
+        // gnb.firstElementChild.lastElementChild.style.background = 'red'
+
+        var elLi = document.querySelectorAll('#gnb > ul > li')
+        for (let i in elLi) {
+            elLi[i].addEventListener('click',function(){
+                this.firstElementChild.style.display = 'block'
+            })
+        }
+
+        // jq쓰려면 $붙여야함
+//         $('#gnb > ul > li').on('click', function(){
+//             $(this).find('ul').css({display:'block'})
+//         })
+// </script>
+</body>
+</html>

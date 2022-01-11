@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼요소에 사용하는 메서드</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <!-- .val(), .focus(), .blur(), .prop() -->
+    <form action="#">
+        <legend>폼요소</legend>
+        <p><input type="text" id="irum"></p>
+        <p>
+            <input type="radio" id="men" name="gender">남
+            <input type="radio" id="woman" name="gender">여
+        </p>
+        <p>
+            <input type="checkbox" id="hobby1" name="hobby1">등산
+            <input type="checkbox" id="hobby2" name="hobby2">낚시
+            <input type="checkbox" id="hobby3" name="hobby3">독서
+        </p>
+        <select name="opt" id="opt">
+            <option value="1">선택1</option>
+            <option value="2">선택2</option>
+            <option value="3">선택3</option>
+        </select>
+    </form>
+    <div>
+        <button type="submit">전송</button>
+    </div>
+
+    <script>
+        // 폼박스에서 전송 이벤트가 발생했을 때 아래 문제를 풀어보세요.
+        $('form').on('submit',function(){
+            //아이디칸에 입력된 값을 추출하시오.
+            var irumval = $('#irum').val()
+            $()
+
+
+            return false //유효성체크 후 삭제할 것
+        })
+    </script>
+</body>
+</html>

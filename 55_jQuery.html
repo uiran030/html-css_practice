@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery(자바스크립트 라이브러리)</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+    <!-- 
+        .text() : 선택자 안에 있는 글자만을 추출
+        .html() : 선택자 안에 있는 태그(요소)를 추출
+        .attr('속성명') : 태그(요소)가 갖고있는 속성의 속성값을 추출
+        .css('속성명') : css 속성의 속성값을 추출
+
+        .text('문자') : 선택자 안에 있는 글자를 수정하거나 입력
+        .html('<요소>내용</요소>') : 선택자 안에 있는 태그(요소)를 수정하거나 입력
+        .attr({속성명:'속성값'}) : 태그(요소) 속성을 수정하거나 입력
+        .css({속성명: '속성값'}) : css 속성을 수정하거나 입력
+    -->
+    
+    <h1>정의란</h1>
+    <h1>홍길동</h1>
+    <div class="school">
+        <strong>그린컴퓨터학원</strong>
+    </div>
+    <ul class="potal">
+        <li><a href="http://www.daum.net" style="color:red">다음</a></li>
+        <li><a href="http://www.naver.com" style="color:green">네이버</a></li>
+        <li><a href="http://www.yahoo.com" style="color:blue">야후</a></li>
+    </ul>
+    <p></p>
+
+
+    <!-- 2번째 예제 -->
+    <style>
+        .gallery {max-width: 300px; margin:50px auto;}
+        .gallery ul {list-style: none; display: flex; padding:0; margin:0; box-sizing: border-box;}
+        .gallery ul li { width:25%;}
+        .gallery ul li img {width:100%; vertical-align: middle;}
+    </style>
+    <div class="gallery">
+        <ul>
+            <!-- 이동의 목적이 없는 a태그라면 href에서 바로 javascript:;라고 적어두면됨 -->
+            <li>
+                <a href="javascript:;">
+                    <img src="./img/prod1.jpg" alt="이미지1">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./img/prod2.jpg" alt="이미지2">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./img/prod3.jpg" alt="이미지3">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="./img/prod1.jpg" alt="이미지4">
+                </a>
+            </li>
+        </ul>
+        <div class="stage">
+            <h2>이미지1</h2>
+            <img src="./img/prod1.jpg" alt="이미지1">
+        </div>
+    </div>
+
+    <script>
+    // ---예제1--- //
+        // h1을 클릭했을 때 안에 있는 글자를 추출해서 p요소에 입력하시오.
+        $('h1').on('click', function(){
+            var txt = $(this).text()
+            $('p').text(txt)
+        })
+
+        $('.school').on('click', function(){
+            var html = $(this).html()
+            $('p').html(html)
+        })
+
+        // $('ul.potal li a').on('click',function(e){
+        //     var txt = $(this).attr('href')
+        //     $('p').text(txt)
+        //     $(this).attr({ title:txt })
+        //     return false
+        // })
+
+        $('ul.potal li a').on('click',function(){
+            var color = $(this).css('color')
+            $('p').text(color).css({ background:color, color:'#fff'})
+            return false                  //jquery에서는 return false로 막아져서 이거만 써도됨
+        })
+
+
+    // ---예제2--- //
+        // $('.gallery ul li a').on('click', function(){
+        //     var txt = $(this).attr('alt')
+        //     var img = $(this).children.attr('src')
+        //     $('.stage h2').attr({h2:txt})
+        //     $('div.stage img').attr({src:img})
+        // })
+
+    // ---예제2 (강사님 풀이)--- //
+        $('.gallery a').on('click', function(){
+            var src = $(this).find('img').attr('src')
+            var alt = $(this).find('img').attr('alt')
+            $(this).parents('ul').next().find('h2').text(alt)
+            $(this).parents('ul').next().find('img').attr({
+                src:src,
+                alt:alt
+            })
+        })
+    </script>
+</body>
+</html>

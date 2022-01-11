@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리(자바스크립트 라이브러리)</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <!-- 
+        .text() : 선택자 안에 있는 글자만을 추출
+        .html() : 선택자 안에 있는 태그(요소)를 추출
+        .attr('속성명') : 태그(요소)가 갖고 있는 속성의 속성값을 추출
+        .css('속성명') : css 속성의 속성값을 추출
+
+        .text('문자') : 선택자 안에 있는 글자를 수정하거나 입력
+        .html('<요소>내용</요소>') : 선택자 안에 있는 태그(요소)를 수정하거나 입력
+        .attr({속성명:'속성값'}) : 태그(요소) 속성을 수정하거나 입력
+        .css({속성명:'속성값'}) : css 속성을 수정하거나 입력
+    -->
+    <h1>김은영</h1>
+    <h1>홍길동</h1>
+    <div class="school">
+        <strong>그린컴퓨터학원</strong>
+    </div>
+    <ul class="potal">
+        <li><a href="http://www.daum.net" style="color:red">다음</a></li>
+        <li><a href="http://www.naver.com" style="color:green">네이버</a></li>
+        <li><a href="http://www.yahoo.com" style="color:brown">야후</a></li>
+    </ul>
+    <p></p>
+
+    <style>
+        .gallery { max-width:300px; margin:50px auto }
+        .gallery ul { list-style:none; display:flex; padding:0; margin:0; box-sizing:border-box }
+        .gallery ul li { width:25%; border:1px solid #000 }
+        .gallery ul li img { width:100%; vertical-align:middle }
+    </style>
+
+    <div class="gallery">
+        <ul>
+            <li><a href="javascript:;"><img src="./img/prod1.jpg" alt="이미지1"></a></li>
+            <li><a href="javascript:;"><img src="./img/prod2.jpg" alt="이미지2"></a></li>
+            <li><a href="javascript:;"><img src="./img/prod3.jpg" alt="이미지3"></a></li>
+            <li><a href="javascript:;"><img src="./img/prod1.jpg" alt="이미지4"></a></li>
+        </ul>
+        <div class="stage">
+            <h2>이미지1</h2>
+            <img src="./img/prod1.jpg" alt="이미지1">
+        </div>
+    </div>
+
+    <script>
+        // h1을 클릭했을때 안에 있는 글자를 추출해서 p요소에 입력하시오.
+        $('h1').on('click', function(){
+            var txt = $(this).text()
+            $('p').text(txt)
+        })
+
+        // div를 클릭했을때 안에 있는 요소를 추출해서 p요소에 입력하시오.
+        $('div.school').on('click', function(){
+            var htl = $(this).html()
+            $('p').html(htl)
+        })
+        
+        // $('ul.potal li a').on('click', function(){
+        //     var txt = $(this).attr('href')
+        //     $('p').text(txt)
+        //     $(this).attr({ title:txt })
+        //     return false
+        // })
+
+        $('ul.potal li a').on('click', function(){
+            var color = $(this).css('color')
+            $('p').text(color)
+            .css({ background:color, color:'#fff' })
+            return false
+        })
+
+        $('.gallery a').on('click', function(){
+            var src = $(this).find('img').attr('src')
+            var alt = $(this).find('img').attr('alt')
+            $(this).parents('ul').next().find('h2').text(alt)
+            $(this).parents('ul').next().find('img').attr({
+                src:src,
+                alt:alt
+            })
+        })
+
+
+
+    </script>
+
+
+</body>
+</html>

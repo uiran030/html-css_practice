@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 20px;
+            font-family: "맑은 고딕";
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <h2>부모(parent), 자식(children), 조상(parents), 후손(find), 이전형제(prev), 다음형제(next)</h2>
+    <div id="container">
+        <div id="sub">
+            <p id="contchild">div p</p>
+        </div>
+        <p>p</p>
+        <p>p</p>
+        <p id="part1">p</p>
+        <p>p</p>
+        <p>p</p>
+    </div>
+
+
+    <h2 style="margin-top:50px">순서선택자</h2>
+    <ul id="nav1">
+		<li>0</li>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+    <ul id="nav2">
+		<li>0</li>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+
+    <script>
+        /*
+        탐색 : jQuery의 선택자를 기준으로 새로운 노드를 찾아가는 방법을 제공합니다.
+        */
+        
+        // div#container 태그의 자식 노드들 중에서 <p> 태그를 모두 선택합니다.
+        // $("div#container").children("p").css({"background-color":"#666", color:"#fff"});
+        
+        // div#container 태그의 자손 노드들 중에서 <p> 태그를 모두 선택합니다.
+        // $("div#container").find("p").css({"background-color":"#666", color:"#fff"});
+        
+        // id 값이 "part1"인 <p> 태그 바로 앞에 위치한 노드를 선택합니다.
+        // $("p#part1").prev().css({"background-color":"#666", color:"#fff"});
+        
+        // id 값이 "part1"인 <p> 태그 바로 다음에 위치한 노드를 선택합니다.
+        // $("p#part1").next().css({"background-color":"#666", color:"#fff"});
+        
+        // ★ id 값이 "part1"인 <p> 태그의 형제 노드를 선택합니다. 
+        $("p#part1").siblings().css({"background-color":"#666", color:"#666"});
+        
+        // id 값이 "part1"인 <p> 태그의 부모 노드를 선택합니다. 이 때 div 하의의 <p> 태그는 상속에 의해 color 속성이 변경됩니다.
+        // $("p#part1").parent().css({"background-color":"#666", color:"#666"});
+
+        // id 값이 "contchild"인 <p> 태그의 조상 노드 중 div#container를 선택합니다. 
+        // $("p#contchild").parents('#container').css({border:'1px solid #f00'});
+
+
+        // 순서선택자와 형제선택자 siblings()
+        // <ul>의 첫번째 자식 li:first-child
+        // $('ul > li:first-child').css({ color:'red' })
+        
+        // <ul>의 마지막 자식 li:last-child
+        // $('ul > li:last-child').css({ color:'red' })
+
+        // <ul>의 홀수번째 자식들 li:odd (인덱스번호는 0번부터)
+        // $('ul > li:odd').css({ color:'red' })
+
+        // <ul>의 짝수번째 자식들 li:even (인덱스번호는 0번부터)
+        // $('ul > li:even').css({ color:'red' })
+
+        // ul#nav1 의 첫번째 자식 li:eq(0)
+        // $('ul#nav1 > li:eq(0)').css({ color:'red' })
+
+        // ul#nav2 의 첫번째 자식 li:eq(0)의 모든 형제들 siblings()
+        $('ul#nav2 > li:eq(0)').siblings().css({ color:'red' })
+
+
+    </script>
+
+
+</body>
+</html>

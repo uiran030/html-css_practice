@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prepend(), append(), before(), after()</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <style>
+        div { margin:50px; padding:10px }
+        #m1 { border:1px solid #f00; }
+        #m2 { border:1px solid blue; }
+        strong { background:orange }
+    </style>
+</head>
+<body>
+    <!-- 
+        $('선택자').prepend('삽입요소') : 선택자의 첫번째 자식으로 삽입됨
+        $('선택자').append('삽입요소') : 선택자의 마지막 자식으로 삽입됨
+        $('선택자').before('삽입요소') : 선택자의 이전 형제요소로 삽입됨
+        $('선택자').after('삽입요소') : 선택자의 다음 형제요소로 삽입됨
+    -->
+    <div id="m1"><strong>내용1</strong></div>
+    <div id="m2"><strong>내용2</strong></div>
+    <button type="button">prepend</button>
+    <button type="button">append</button>
+    <button type="button">before</button>
+    <button type="button">after</button>
+
+    <script>
+        $('button').eq(0).on('click', function(){
+            $('#m1').prepend('<p>새로 삽입된 요소</p>')
+        })
+        $('button').eq(1).on('click', function(){
+            $('#m1').append('<p>새로 삽입된 요소</p>')
+        })
+        $('button').eq(2).on('click', function(){
+            $('#m2').before('<p>새로 삽입된 요소</p>')
+        })
+        $('button').eq(3).on('click', function(){
+            $('#m2').after('<p>새로 삽입된 요소</p>')
+        })
+
+        // 위의 메서드로 새로 삽입된 요소들에 이벤트를 연결할 때는
+        // 실제 존재하는 상위 요소에 연결하여 전달해야 함
+        $('body').on('click', 'p', function(){
+            $(this).remove()
+        })
+    </script>
+
+</body>
+</html>

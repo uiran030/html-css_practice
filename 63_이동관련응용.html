@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이동관련메서드 응용문제</title>
+    <style>
+        .gallery { max-width:300px; margin:50px auto }
+        .gallery ul { list-style:none; padding:0; margin:0; box-sizing:border-box; 
+            height:200px; overflow:hidden }
+        .gallery ul li { border:1px solid #000 }
+        .gallery ul li img { width:100%; vertical-align:middle }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <div class="gallery">
+        <ul>
+            <li><a href="javascript:;"><img src="./img/dish1.jpg" alt="이미지1"></a></li>
+            <li><a href="javascript:;"><img src="./img/dish2.jpg" alt="이미지2"></a></li>
+            <li><a href="javascript:;"><img src="./img/dish3.jpg" alt="이미지3"></a></li>
+            <li><a href="javascript:;"><img src="./img/dish4.jpg" alt="이미지4"></a></li>
+        </ul>
+        <div class="btn">
+            <button type="button">이전</button>
+            <button type="button">다음</button>
+        </div>
+    </div>
+
+    <script>
+        $('.btn button').eq(0).on('click', function(){
+            $('.gallery ul li:last-child').prependTo('.gallery ul')
+        })
+        $('.btn button').eq(1).on('click', function(){
+            $('.gallery ul li:first-child').appendTo('.gallery ul')
+        })
+    </script>
+
+</body>
+</html>

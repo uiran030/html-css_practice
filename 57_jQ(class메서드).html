@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스메서드 : addClass(), removeClass(), toggleClass(add+remove합쳐진것), hasClass()</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <style>
+        .depth1 > li.on { color:red }
+        .depth1 > li  .depth2 { display:none }
+        .depth1 > li.active .depth2 { display:block }
+    </style>
+</head>
+<body>
+    
+    <ul class="depth1">
+        <li class="on">메뉴1
+            <ul class="depth2">
+                <li>서브메뉴1</li>
+                <li>서브메뉴1</li>
+                <li>서브메뉴1</li>
+            </ul>
+        </li>
+        <li>메뉴2
+            <ul class="depth2">
+                <li>서브메뉴2</li>
+                <li>서브메뉴2</li>
+                <li>서브메뉴2</li>
+            </ul>
+        </li>
+        <li>메뉴3
+            <ul class="depth2">
+                <li>서브메뉴3</li>
+                <li>서브메뉴3</li>
+                <li>서브메뉴3</li>
+            </ul>
+        </li>
+        <li>메뉴4
+            <ul class="depth2">
+                <li>서브메뉴4</li>
+                <li>서브메뉴4</li>
+                <li>서브메뉴4</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        $('ul.depth1 > li').on('click', function(){
+            $(this).addClass('on')
+            $(this).siblings().removeClass('on')
+            // if (!$(this).hasClass('active')) {
+            //     $(this).addClass('active')
+            // } else {
+            //     $(this).removeClass('active')
+            // }
+
+            // 아래 두줄을 if문으로 해석 (↑) - 더 간단한 toggleClass로 해결하는 것이 좋음
+            $(this).toggleClass('active')
+            $(this).siblings().removeClass('active')
+        })
+
+    </script>
+
+</body>
+</html>

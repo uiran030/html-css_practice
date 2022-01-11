@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prependTo(), appendTo(), insertBefore(), insertAfter()</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    <!-- 
+        $('선택자').prependTo('기준요소') : 선택자를 기준요소의 첫번째 자식으로 이동
+        $('선택자').appendTo('기준요소') : 선택자를 기준요소의 마지막 자식으로 이동
+        $('선택자').insertBefore('기준요소') : 선택자를 기준요소의 이전형제로 이동
+        $('선택자').insertAfter('기준요소') : 선택자를 기준요소의 다음형제로 이동
+    -->
+    <ul class="depth1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <button type="button">prependTo</button>
+    <button type="button">appendTo</button>
+    <button type="button">insertBefore</button>
+    <button type="button">insertAfter</button>
+
+    <script>
+        $('button').eq(0).on('click', function(){
+            $('ul li:last-child').prependTo('.depth1')
+        })
+        $('button').eq(1).on('click', function(){
+            $('ul li:first-child').appendTo('.depth1')
+        })
+        $('button').eq(2).on('click', function(){
+            $('ul li:last-child').insertBefore('.depth1 li:nth-child(2)')
+        })
+        $('button').eq(3).on('click', function(){
+            $('ul li:first-child').insertAfter('.depth1 li:nth-child(3)')
+        })
+    </script>
+</body>
+</html>

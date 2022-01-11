@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate 메서드</title>
+    <style>
+        *{box-sizing: border-box;}
+        .slideOuter {max-width:640px; margin:0 auto;}
+        /* .slideInner > div {display: none;}
+        .slideInner > div:nth-child(1) {display: block;} */
+        .slideInner { position:relative; border:1px solid red;}
+        /* 자식들이 position가지면 부모 높이가 사라지기때문에 꼭 inner에 height 설정! */
+        .slideInner > div { position:absolute; top:0; left: 0;}
+        .slideInner > div img { width:100%; }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <div class="slideOuter">
+        <div class="slideInner">
+            <div class="slide0"><img src="./img/dish1.jpg" alt=""></div>
+            <div class="slide1"><img src="./img/dish2.jpg" alt=""></div>
+            <div class="slide2"><img src="./img/dish3.jpg" alt=""></div>
+            <div class="slide3"><img src="./img/dish4.jpg" alt=""></div>
+        </div>
+    </div>
+    <div class="text">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur possimus officia officiis. Ab rem, quis aut voluptatum possimus fugiat mollitia commodi ipsa? Dolorem error hic molestiae, quis incidunt culpa architecto!
+    </div>
+
+    <script>
+        $('.slideInner > div').hide()
+        $('.slideInner > div').ezq(0).css({position:'relative'}).show()
+        var count=0
+        
+        function slide() {
+            count++
+            if (count>3) count=0
+            // fadein,out을 쓰려면 div위치들이 전부 같아야함. 그래야 같은자리에서 움직임 (style작업)
+            $('.slideInner > div').eq(count).css({position:'relative'}).fadeIn(300)
+            $('.slideInner > div').eq(count).siblings().css({position:'absolute'}).fadeOut(300)
+        }
+
+        var timer = setInterval(slide, 1000)
+        $('.slideOuter').on('mouseover', function(){
+            clearInterval(timer)
+        })
+        $('.slideOuter').on('mouseout', function(){
+            timer = setInterval(slide, 1000)
+        })
+    </script>
+
+</body>
+</html>

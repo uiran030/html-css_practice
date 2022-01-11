@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate 메서드2</title>
+    <style>
+        *{box-sizing: border-box;}
+        ul{list-style: none;}
+
+        .slideOuter {max-width:640px; margin:0 auto; overflow: hidden;}
+        .slideInner { 
+            position:relative; 
+            left: 0;
+            border:1px solid red;
+            width:400%;
+        }
+        .slideInner::after{content: ''; display: block; clear: both;}
+        .slideInner > div { float: left; width:25%;}
+        /* .slideInner > div:nth-child(1) { left: 0%; }
+        .slideInner > div:nth-child(2) { left: 100%; }
+        .slideInner > div:nth-child(3) { left: 200%; }
+        .slideInner > div:nth-child(4) { left: 300%; } */
+        .slideInner > div img { width:100%; }
+
+        .slideOuter {position:relative;}
+        .slickdocts {position:absolute; right: 10px; bottom: 10px;}
+        .slickdocts li {display: inline-block;}
+        .slickdocts li button {
+            width: 25px; 
+            height: 25px; 
+            border-radius: 50%; 
+            border:none;
+            background-color: red;
+            /* 낭독은 시켜야하기때문에 화면에서만 안보이게하고싶으면 background와 color를 같게하면됨. */
+            color:white;
+        }
+        .slickdocts li.active button { background-color: blue; }
+        .prev {
+            position:absolute; 
+            top:50%; transform: 
+            translateY(-50%); 
+            left: 10px; 
+            z-index: 999;
+            background-color: white;
+            padding:10px;
+            cursor: pointer;
+        }
+        .next {
+            position:absolute; 
+            top:50%; 
+            transform: translateY(-50%); 
+            right: 10px;
+            background-color: white;
+            padding:10px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <div class="slideOuter">
+        <div class="prev">이전(오른쪽)</div>
+        <div class="slideInner">
+            <div class="slide0"><img src="./img/dish1.jpg" alt="흰밥"></div>
+            <div class="slide1"><img src="./img/dish2.jpg" alt="샐러드"></div>
+            <div class="slide2"><img src="./img/dish3.jpg" alt="밑반찬"></div>
+            <div class="slide3"><img src="./img/dish4.jpg" alt="토스트"></div>
+        </div>
+        <div class="next">다음(왼쪽)</div>
+
+        <!-- 현재는 수동으로 만들었지만 나중에 플러그인 작업하면 ul이 자동으로 들어올것임. -->
+        <ul class="slickdocts">
+            <li class="active"><button>1</button></li>
+            <li><button>2</button></li>
+            <li><button>3</button></li>
+            <li><button>4</button></li>
+        </ul>
+    </div>
+
+    <script>
+        // 순차적으로 이동
+
+        function slideTarget(n){
+            var pos = n*(-100)+'%'
+            // console.log(pos)
+            $('.slideInner').animate({left:pos}, 500)
+        }
+
+        var count = 0;
+        $('.next').on('click', function(){
+            // if(count>3) count=0
+            // if(count>3) {
+            //     count=3
+            //     return false
+            // }
+            // (↑)인덱스번호가 3보다 크면 처음으로 돌아가지않고 작동없이 멈추게하기위함
+            // (↓) 더 간단히 정리한 방법
+            if(count<3) {
+                count++;
+                $('.slickdocts li').eq(count).addClass('active')
+                $('.slickdocts li').eq(count).siblings().removeClass('active')
+                slideTarget(count)
+            }
+        })
+        $('.prev').on('click', function(){
+            if (count>0) {
+                count--;
+                // if(count<0) count=3
+                $('.slickdocts li').eq(count).addClass('active')
+                $('.slickdocts li').eq(count).siblings().removeClass('active')
+                slideTarget(count)
+            }
+            // 위에 return false값보다 더 업그레이드된 방법
+        })
+
+        $('.slickdocts li button').on('click', function(){
+            $(this).parent().addClass('active')
+            $(this).parent().siblings().removeClass('active')
+            var liIndex = $(this).parent().index()
+            slideTarget(liIndex)
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String 객체 (p.172)</title>
+</head>
+<body>
+    
+    <script>
+        // 문자열을 담고있는 변수가 String객체
+        var str = 'Javascript'
+        // charAt(n) : n번째 글자 추출 (시작번호는 0번부터)
+        // console.log(str.charAt(0))
+
+        // indexOf('a') : 왼쪽부터 'a' 문자를 검색해서 처음 일치하는 인덱스번호 반환
+        // 찾아지는 값이 없으면 -1
+        // console.log(str.indexOf('a'))
+
+        // lastIndexOf('a') : 오른쪽부터 'a'문자를 검색해서 처음 일치하는 번호 반환
+        // 찾아지는 값이 없으면 -1
+        // console.log(str.lastIndexOf('x'))
+
+        // includes('a') : 'a'문자가 있으면 true, 없으면 false 반환
+        // console.log(str.includes('a'))
+
+        // substring(4, 9) : 4번부터 9번 이전까지 문자열 반환
+        // substring(4) : 4번부터 마지막 문자까지 반환
+        // console.log(str.substring(4,9))
+
+        //substr(4,6) : 4번부터 6개의 문자를 반환
+        // console(str.substr(4,6))
+
+        //split('구분자') : 따옴표 안의 구분문자(공백도포함)를 기준으로 분할해서 배열을 반환
+        var str1 = 'javaScript jQuery html css'
+        // var result = str1.split(' ')
+        // console.log(result)
+
+        //replace('x', 'y') : 'x' 문자를 'y'로 변환하기
+        // 기존 스트링 객체 값이 변경됨
+        // console.log(str1.replace('jQuery', '제이쿼리'))
+
+        // 문자열1.concat(문자열2) : 문자열1+문자열2
+        // console.log( str.concat(str1) )
+        // console.log (str1)
+
+        // trim() : 문자열의 앞 뒤 공백을 제거함
+        // var str2 = "  정의란  "
+        // console.log(str2.trim())
+
+        // toLowerCase() : 소문자로 변경
+        // toUpperCase() : 대문자로 변경
+        // var str3="jeongeuiran"
+        // console.log(str3.toUpperCase())
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형스타일 (기본화면이 모바일인 경우)</title>
+    <style>
+        /* 기본화면 : 768px 이하 */
+        body { background-color:  red; width:100%;}
+        h1{color: white; font-size: 100px;}
+
+        /* 769px 이상 (태블릿) */
+        @media screen and (min-width:769px) { 
+            body {background-color: green;}
+            h1 {font-size: 50px; color: yellow;}
+        }
+
+        /* 1025px 이상 (pc화면) */
+        @media screen and (min-width:1025px) {
+            body {background-color: pink;}
+        }
+    </style>
+</head>
+<body>
+    <h1>정의란</h1>
+
+
+</body>
+</html>

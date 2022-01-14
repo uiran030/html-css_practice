@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>width, height 메서드</title>
+    <style>
+        *{padding:0; margin:0; 
+            box-sizing: border-box;
+        }
+        #wrap {
+            width:300px; 
+            height:300px; 
+            padding:10px; 
+            margin:10px;
+            border:10px solid black;
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body style="height:2000px">
+
+    <div id="wrap"></div>
+
+    <script>
+        // 윈도우 안쪽 크기 : window.innerWidth, window.innerHeight
+        // 윈도우 바깥쪽 크기 : window.outerWidth, window.outerHeight
+        var wiw = window.innerWidth
+        var wih = window.innerHeight
+        var wow = window.outerWidth
+        var woh = window.outerHeight
+        console.log(wiw, wih, wow, woh)
+
+        //윈도우에는 padding, border를 사용하지 않으므로 같은 값이 구해짐
+        //윈도우에 스크롤바가 생성되면 넓이가 17px 차이가 생김
+        var $ww = $(window).width()             //넓이(padding과 border는 제외된 넓이)
+        var $wiw = $(window).innerWidth()       //padding이 적용된 넓이
+        var $wow = $(window).outerWidth()       //border, margin이 적용된 넓이
+        console.log($ww, $wiw, $wow)
+
+        //일반요소들은 padding, border를 사용하기 때문에 다른 값이 구해짐
+        //box-sizing 속성을 적용했을 때는 outerWidth() 값을 사용
+        var wrapWW = $('#wrap').width()
+        var wrapWIW = $('#wrap').innerWidth()   //outerWidth, outerHeight를 많이 사용
+        var wrapWOW = $('#wrap').outerWidth()   //box-sizing 속성을 사용했을 때
+        console.log(wrapWW, wrapWIW, wrapWOW)
+    </script>
+</body>
+</html>

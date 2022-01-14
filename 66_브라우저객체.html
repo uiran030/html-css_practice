@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저객체(BOM)</title>
+    <style>
+        *{padding:0; margin:0; box-sizing: border-box;}
+        #wrap{
+            width:300px; 
+            height:500px; 
+            border:1px solid black;
+            position:fixed;
+            top:100px;
+            left: 200px;
+            z-index: 9999999;
+        }
+        h2{text-align: center; padding:30px; font-size: 30px;}
+        p{padding:20px;}
+        div.btn {text-align: center; padding:10px;}
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <!-- 
+        window.alert()
+        window.prompt("", "")
+        ★window.open("새 창에 들어올 문서의 url", "윈도우 이름", "창크기, 창위치, 상태바, 스크롤바 등 환경설정")
+            -팝업창열때 (값 총 3가지/창제목은 필수로 쓰지않아도됨 빈 따옴표로 많이 둠)
+        window.close() -팝업창닫기
+    -->
+
+    <div id="wrap">
+        <h2>공지사항</h2>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Esse adipisci quibusdam atque sapiente minima excepturi 
+            eligendi, laboriosam dolores eius porro incidunt ut ab cupiditate 
+            tempora alias? Omnis autem optio ratione?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Esse adipisci quibusdam atque sapiente minima excepturi 
+            eligendi, laboriosam dolores eius porro incidunt ut ab cupiditate 
+            tempora alias? Omnis autem optio ratione?
+        </p>
+        <div class="btn">
+            <button type="button">닫기</button>
+        </div>
+    </div>
+    <script>
+        // window.open('./popup.html', '', 'width=362, height=600, top=100, left=200')
+        $('#wrap button').on('click', function(){
+            $(this).parents('#wrap').remove()
+        })
+    </script>
+</body>
+</html>

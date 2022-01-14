@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>위치및스크롤메서드</title>
+    <style>
+        *{padding:0; margin:0; box-sizing: border-box;}
+        #wrap {
+            width:300px; 
+            height:300px; 
+            padding:10px; 
+            margin:10px;
+            border:10px solid black;
+            position:fixed;
+            top:0; left: 0;
+        }
+        .child {
+            position:absolute; 
+            top:50px; left: 50px;
+            width:100px;
+            height: 100px;
+            background-color: red;
+        }
+        #wrap2 {height:2000px; background-color: green; margin-top:300px;}
+        #wrap3 { background-color: orange; }
+        #wrap3 ul {
+            max-width: 1000px; 
+            overflow: hidden; 
+            margin:0 auto;
+            padding-bottom: 1000px;
+        }
+        #wrap3 ul li {
+            float: left; 
+            width:25%; 
+            height:300px;
+            border:1px solid black;
+            background-color: brown;
+            transition: all 2s 0.5s;
+        }
+        /* 여기서 %는 본인 크기의 퍼센트임 */
+        #wrap3 ul li:nth-child(1) {transform: translate(-200%, 0);}
+        #wrap3 ul li:nth-child(2) {transform: translate(-0, 200%);}
+        #wrap3 ul li:nth-child(3) {transform: translate(-0, -200%);}
+        #wrap3 ul li:nth-child(4) {transform: translate(200%, 0);}
+
+        #wrap3.on ul li:nth-child(1) {transform: translate(0%, 0);}
+        #wrap3.on ul li:nth-child(2) {transform: translate(-0, 0%);}
+        #wrap3.on ul li:nth-child(3) {transform: translate(-0, 0%);}
+        #wrap3.on ul li:nth-child(4) {transform: translate(0%, 0);}
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="child"></div>
+    </div>
+    <div id="wrap2"></div>
+    <div id="wrap3">
+        <ul>
+            <li>내용1</li>
+            <li>내용2</li>
+            <li>내용3</li>
+            <li>내용4</li>
+        </ul>
+    </div>
+
+    <script>
+        // offset() : html 기준으로 left, top 값을 구해줌
+        // position() : 부모요소 기준으로 left, top 값을 구해줌
+        var wrapleft = $('#wrap').offset().left
+        console.log(wrapleft)
+        var childtop = $('.child').offset().top
+        console.log(childtop)
+        var postop = $('.child').position().top
+        console.log(postop)
+
+        // #wrap2와 #wrap3가 html 기준 상단에 얼마나 떨어져있는지 거리값을 구하시오.
+        var wrap2top = $('#wrap2').offset().top
+        var wrap3top = $('#wrap3').offset().top
+        $('#wrap2').text(wrap2top)
+        // $('#wrap3').text(wrap3top)
+
+        //scrollTop() : 세로 스크롤바를 이동했을 때 거리값
+        //scrollLeft() : 가로 스크롤바를 이동했을 때 거리값
+        var wrap3Near = $('#wrap3').offset().top - $(window).height()
+        $(window).on('scroll', function(){
+            var sct = $(this).scrollTop()
+            if (sct > wrap3Near) {
+                $('#wrap3').addClass('on')
+            } else {
+                $('#wrap3').removeClass('on')
+            }
+        })
+    </script>
+</body>
+</html>

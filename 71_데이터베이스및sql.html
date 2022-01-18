@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>database</title>
+</head>
+<body>
+    <!-- 
+        1. MYSQL서버에 루트 권한으로 로그인 : c:\xampp\mysql\bin>mysql -uroot -p
+        2. root 권한으로 할 수 있는 일 
+            (1) 데이터베이스 생성 : create database DB명;
+            (2) 사용자 계정 생성 : create user 계정명@localhost identified by '비밀번호';
+            (3) 사용자 권한 부여 : grant all privileges on DB명.* to 계정명@localhost;
+            (4) 데이터베이스 검색 : show databases;
+        3. 사용자 계정으로 로그인 : c:\xampp\mysql\bin>mysql -u사용자계정명 -p사용자비밀번호;
+            (1) 데이터베이스 오픈 : use DB명
+            (2) DB에 테이블 생성 : create table 테이블명(필드1 자료형 not null auto_increment, 필드2 자료형
+            not null, 필드3.... primary key(필드1))
+                예) create table book( bookid int not null auto_increment, bookname varchar(50) not null,
+                publisher varchar(50) not null, price int not null, primary key(bookid) );
+            (3) 테이블에 레코드 입력 : insert into 테이블명 (필드1, 필드2, 필드3, ...) values(값1, 값2, ...)
+                예) insert into book(bookname, publisher, price) values('축구의 역사', '굿스포츠', 7000)
+                insert into book(bookname, publisher, price) values('축구아는 여자', '나무수', 13000)
+                insert into book(bookname, publisher, price) values('축구의 이해', '대한미디어', 22000)
+    -->
+</body>
+</html>

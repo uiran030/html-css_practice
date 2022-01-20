@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex 응용</title>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        /* 1번 예제 */
+        .wrap{
+            max-width: 1000px; 
+            margin:0 auto; 
+            border: 1px solid red; 
+            display: flex;
+            /* justify-content: space-between; */
+            /* align-items: stretch; */
+        }
+        .wrap .child1 {
+            border: 1px solid black;
+            flex:1;
+        }
+        .wrap .left {margin-right:30px;}
+        .wrap .right {
+            display: flex; 
+            flex-flow:column;
+        }
+        .wrap .child2 {
+            flex: 1;
+            border:1px solid green;
+        }
+        .wrap .child2:nth-child(1) {margin-bottom: 30px; display: flex; }
+        .wrap .child3 {
+            border:1px solid tan;
+            flex:1;
+        }
+        .wrap .child3:nth-child(1) {margin-right:30px;}
+
+        /* 2번 예제 */
+        .wrap2 {
+            max-width: 768px; 
+            margin:50px auto; 
+            border:1px solid red;
+            display: flex;
+        }
+        .wrap2 > div {
+            flex:1;
+            border:1px solid blue;
+        }
+        .wrap2 .left {display: flex; flex-flow: column;}
+        .wrap2 .left .leftchild:nth-child(1) {border:1px solid pink; flex:2;}
+        .wrap2 .left .leftchild:nth-child(2) {border:1px solid pink; flex:1;}
+        .wrap2 .right {display:flex; flex-flow:column;}
+        .wrap2 .right > div{flex:1 1 0; border:1px solid brown}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="child1 left">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, 
+            et laboriosam quibusdam molestias error architecto, eius vero natus nisi asperiores 
+            beatae reprehenderit. Quidem maxime, maiores minus repudiandae molestiae obcaecati enim.
+            Unde laudantium autem accusantium repudiandae sequi tempora eaque, corporis, quibusdam 
+            distinctio impedit ab quos? Officia sint dignissimos aut quia placeat nobis eos, doloribus, 
+            dolor modi nam voluptas tenetur laboriosam hic?
+            Eveniet perferendis quis alias enim deserunt nulla quisquam, dignissimos explicabo dolores 
+            culpa tempore, minima autem ex? Voluptatem ut a, similique nobis ea in quidem quisquam modi 
+            alias, fugiat, quas blanditiis.Nam facilis beatae molestiae labore blanditiis expedita? Alias, ab atque. Atque tenetur, 
+            a nihil suscipit ipsum facilis aperiam, fugiat sapiente aut dignissimos reprehenderit 
+            aliquam repudiandae voluptate debitis omnis ullam ea.Dolore commodi, officia perspiciatis 
+            nemo fuga est tempore minus. Aperiam, atque, ex maiores laudantium harum veritatis, 
+            ipsa excepturi maxime quisquam incidunt suscipit hic delectus quidem sit magnam autem 
+            quia quod? Mollitia, eius. Quis eligendi quasi culpa ratione enim commodi maxime eos est 
+            beatae omnis voluptatem consequuntur nemo aperiam cumque totam aspernatur eum consequatur, 
+            ur iure ipsum minima earum iusto. Quia? Quam perspiciatis unde provident reprehenderit 
+            dicta doloremque, ab laudantium ex voluptatum? Consectetur repellendus incidunt 
+            voluptatibus enim veritatis quam? Cupiditate qui sed quod veritatis assumenda architecto 
+            nulla enim! Aperiam, laborum autem? Necessitatibus culpa officiis doloribus nesciunt. 
+            Ipsa vitae magni officiis atque suscipit tempore pariatur reprehenderit magnam? Illum, 
+            inventore sapiente quaerat voluptatum non aut tenetur mollitia doloremque, ratione 
+            excepturi officiis. Debitis, fugit! Voluptates numquam vitae ex quasi ipsa amet et 
+            explicabo esse sed ut blanditiis possimus veritatis accusantium illum molestiae sequi 
+            cupiditate, nemo provident. Labore ex a atque aut deleniti. Dicta, quos?
+            Quia totam tenetur id, dicta molestias temporibus magni inventore sapiente voluptatem
+            deleniti quo amet laborum cumque numquam veritatis eum ullam quisquam. 
+            Harum sequi dolor a temporibus aliquid maxime perferendis quaerat.
+        </div>
+        <div class="child1 right">
+            <div class="child2">
+                <div class="child3"></div>
+                <div class="child3"></div>
+            </div>
+            <div class="child2"></div>
+        </div>
+    </div>
+
+    <div class="wrap2">
+        <div class="left">
+            <div class="leftchild">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Reprehenderit dicta sequi repellendus molestiae unde blanditiis illo, 
+                voluptatem natus accusamus quas modi culpa eos. Inventore quo dignissimos neque 
+                aliquid explicabo aperiam?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Reprehenderit dicta sequi repellendus molestiae unde blanditiis illo,
+            </div>
+            <div class="leftchild">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Reprehenderit dicta sequi repellendus molestiae unde blanditiis illo, 
+                voluptatem natus accusamus quas modi culpa eos. Inventore quo dignissimos neque 
+                aliquid explicabo aperiam?
+            </div>
+        </div>
+        <div class="right">
+            <div class="rightchild">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Reprehenderit dicta sequi repellendus molestiae unde blanditiis illo, 
+                voluptatem natus accusamus quas modi culpa eos. Inventore quo dignissimos neque 
+                aliquid explicabo aperiam?
+            </div>
+            <div class="rightchild">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Reprehenderit dicta sequi repellendus molestiae unde blanditiis illo, 
+                voluptatem natus accusamus quas modi culpa eos. Inventore quo dignissimos neque 
+                aliquid explicabo aperiam?
+            </div>
+            <div class="rightchild">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Reprehenderit dicta sequi repellendus molestiae unde blanditiis illo, 
+                voluptatem natus accusamus quas modi culpa eos. Inventore quo dignissimos neque 
+                aliquid explicabo aperiam?
+            </div>
+        </div>
+    </div>
+</body>
+</html>

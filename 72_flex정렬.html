@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display:flex</title>
+    <head>
+        <style>
+        /* 
+            자식들 정렬문제 : 한줄에 1개(100%), 한줄에 2개(50%),
+            한줄에 3개(33.333%), 4개(25%), 5개(20%), 6개(16.66%)...
+            부모한테 여백이 생겼을 때 : 자식을 늘려서 채울려면 
+                                        flex-grow:1 (기본값=0)
+            부모공간을 자식이 넘치게 될 때 : 기본은 자식을 축소시켜서 해결함
+                                            flex-shrink:1 (기본값=1)
+                                            flex-shrink:0이면 overflow됨
+            부모공간을 넘치면 줄바꿈 허용 : flex-wrap:wrap (기본값=nowrap)
+            자식들의 세로정렬 문제 (부모높이에 여백이 있을 때 의미 있음) : 1줄일때는 align-items 속성 사용
+                                                                        2줄 이상일때는 align-content 속성 사용
+            flex-flow:row (기본값)는 자식들을 수평정렬 시킴 : justify-content(가로정렬), 세로정렬(align-items)
+            flex-flow:column은 자식들을 수직정렬 시킴 : justify-content(세로정렬), 가로정렬(align-items)
+
+            flex-grow, flex-shrink, flex-basis 축약형
+                (1) flex:0 1 0 -> 세번째 값 flex-basis가 생략(0)되면 기존 width가 무시됨
+                    flex:1 1 0 -> flex-basis가 0이고 flex-grow값이 1이면 자식들은 같은 넓이를 유지함
+                    flex-grow:m -> flex-grow가 n인 자식은 1인 자식들의 n배 넓이를 유지함
+                (2) flex:0 1 auto (세번째값을 auto로 지정해야 기존 width가 적용됨)
+
+            자식들을 빈틈없이 flex 시킬 때는 flex: n n 0; 
+            자식들 사이에 여백이 있는 상태로 flex 시킬 때는 flex: n n auto; width:n%; 적용
+
+            flex-grow, flex-shrink, flex-basis 축약형 : flex:0 1 0
+                flex-basis값이 0이면 자식 넓이를 0으로 보고 부모 넓이를 flex-grow 값의 비율에 따라 자식들 넓이를 새로 정함.
+                margin값이 있거나, flex 속성이 없는 자식이 width를 갖고 있으면 부모넓이에서 그 width 값과 margin 값을 빼고,
+                flex-grow 값에 따라 넓이를 나눠 갖게 됨.
+        */
+        /* 
+            flex-basis : auto(기본값) 일때만 width 속성이 적용됨.
+            flex-basis : auto가 아닐 때는 width 속성이 무시됨.
+        */
+        *{margin:0; padding:0; box-sizing: border-box;}
+        .container {
+            max-width: 1000px;
+            margin:50px auto;
+            background-color: yellow;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .item {
+            background-color: green; 
+            border:1px solid red;
+            color:white;
+            flex:1 1;
+            /* flex-grow:1; flex-shrink:1; flex-basis:0; */
+        }
+        .item:nth-child(2) {flex-grow:2}
+        .item:nth-child(4) {flex-grow:2}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">hel1</div>
+        <div class="item">abc2</div>
+        <div class="item">hel3</div>
+        <div class="item">hel4</div>
+        <div class="item">abc5</div>
+    </div>
+</body>
+</html>

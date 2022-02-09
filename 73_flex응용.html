@@ -23,7 +23,7 @@
         .wrap .left {margin-right:30px;}
         .wrap .right {
             display: flex; 
-            flex-flow:column;
+            flex-direction:column;
         }
         .wrap .child2 {
             flex: 1;
@@ -47,10 +47,10 @@
             flex:1;
             border:1px solid blue;
         }
-        .wrap2 .left {display: flex; flex-flow: column;}
+        .wrap2 .left {display: flex; flex-direction: column;}
         .wrap2 .left .leftchild:nth-child(1) {border:1px solid pink; flex:2;}
         .wrap2 .left .leftchild:nth-child(2) {border:1px solid pink; flex:1;}
-        .wrap2 .right {display:flex; flex-flow:column;}
+        .wrap2 .right {display:flex; flex-direction:column;}
         .wrap2 .right > div{flex:1 1 0; border:1px solid brown}
     </style>
 </head>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 함수의 매개변수로 전달되는 함수를 콜백함수라고 함
+        function a(callbackB) {         // callbackB = function b() { }
+            console.log('a')
+            callbackB()                 // callbackB === b()
+        }
+        function b() {
+            console.log('b')
+        }
+        function c() {
+            console.log('c')
+        }
+
+        // a()
+        // setTimeout(a,500)
+        // b()                      //b는 무조건 a가 끝난 후에 추출한다는 의미
+
+        setTimeout(function(){
+            a(b)
+        }, 500)
+        c()
+
+
+        // A상품을 배송하는데 걸리는 시간 2000ms, B상품을 배송하는데 걸리는 시간 1000ms,
+        // C상품을 배송하는데 걸리는 시간 500ms
+        // 각각의 시간이 걸리는 비동기요청을 동기식으로 처리하기 위해 콜백함수 이용
+        // function productReadyA(callbackB){                    //callbackB = function asyncB(){ }
+        //     console.log('A 상품이 성공적으로 배송되었습니다.')
+        //     callbackB()                                       //callbackB() === asyncB()
+        // }
+        // function productReadyB(callbackC){
+        //     console.log('B 상품이 성공적으로 배송되었습니다.')
+        //     callbackC()
+        // }
+        // function productReadyC(){
+        //     console.log('C 상품이 성공적으로 배송되었습니다.')
+        // }
+        // setTimeout(productReadyA, 2000)
+        // setTimeout(productReadyB, 1000)
+        // setTimeout(productReadyC, 500)
+
+        // 순차적으로 진행되도록 변경하기 ↓
+        // setTimeout(function(){
+        //     productReadyA(
+        //         setTimeout(function(){
+        //             productReadyB(setTimeout(function(){
+        //                 productReadyC()
+        //             },500))
+        //         }, 1000)
+        //     )
+        // },2000)
+
+        productReady('A', 2000, function(output){
+            console.log(output)
+            productReady('B', 1000, function(output){
+                console.log(output)
+                productReady('C',500,function(output){
+                    console.log(output)
+                })
+            })
+        })
+
+        function productReady(pName, time, fncallback){         //fncallback = function(output){console.log(output)}
+            setTimeout(function(){
+                fncallback(pName+' 상품이 성공적으로 배송되었습니다.') //fncallback('A 상품이 성공적으로 배송되었습니다.')
+            }, time)
+
+        }
+    </script>
+</body>
+</html>

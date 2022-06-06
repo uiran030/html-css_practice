@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+</head>
+<body>
+
+    <script>
+        // window 객체의 localStorage 속성
+
+        // 저장하기
+        // localStorage.setItem("변수명", "값(문자열)") 
+        // or
+        // localStorage.변수명 = "값"
+        // 둘 중 하나의 방법으로 사용
+        // localStorage.변수명 = JSON.stringify(문자값이 아닌 값)
+
+        // 추출하기
+        // localStorage.getItem("변수명")
+        // localStorage.변수명
+        // JSON.parse(localStorage.변수명) : 추출해서 객체로 바꿔서 사용함
+
+        // 삭제하기
+        // localStorage.removeItem("변수명") : 변수 자체를 삭제
+        // localStorage.변수명 = "" : 내용만 삭제
+
+        // 전부 clear 시키기
+        // localStorage.clear()
+    </script>
+
+</body>
+</html>

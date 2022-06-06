@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>module 사용하기 (pwa 교재 p.53)</title>
+</head>
+<body>
+    <!-- 
+        별도의 js 파일에서 module을 만들어 export 한 후
+        필요한 곳에서 module이 있는 js 파일을 import하여 사용함
+        import 문이 있는 script type은 module이어야 함.
+        <script type="module"></script>
+    -->
+
+    <!-- 
+        module.js에서 fnPlusNumbers 모듈을 만들어 export한 후
+        아래 script문에서 module1.js 파일을 import하여 사용함
+    -->
+
+    <script type="module">
+        // import fnPlusNumbers from './module1.js'
+        // import myConHello from './module2.js'
+        // import {conHello, fnPlusNumbers} from './module2.js'
+        // import {myConHello, myFnPlusNumbers} from './module2.js'
+        import * as my from './module2.js'
+
+        var result = my.fnPlusNumbers(10, 20)
+        console.log(my.conHello, result)
+    </script>
+</body>
+</html>

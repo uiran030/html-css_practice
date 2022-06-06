@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>await연산자와 async 비동기함수 / PWA교재 p.80</title>
+</head>
+<body>
+    <!-- <div id="demo"></div> -->
+    <button onclick="fnStart()">상품배송시작</button>
+
+    <script>
+        // 비동기요청을 동기식으로 처리하기 위해 Promise 객체를 연결해서 사용할 때는
+        // then() 메서드를 중첩해서 사용하므로 인해 동기와 비동기를 자유롭게 넘나들기 어려운 문제 발생
+        // async function myDisplay(){
+        //     let myPromise = new Promise(function(resolve, reject){
+        //         setTimeout( function(){resolve('I love you!!')}, 3000)
+        //     })
+        //     document.querySelector('#demo').textContent = await myPromise
+        // }
+        // myDisplay()
+
+        async function fnStart() {
+            console.log (await productReady('A', 2000))
+            console.log (await productReady('B', 1000))
+            console.log (await productReady('C', 500))
+        }
+
+        function productReady(pName, pTime) {
+            return new Promise(function(resolve, reject){
+                setTimeout(function(){
+                    resolve(pName+'상품이 성공적으로 배송되었습니다.')
+                }, pTime)
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$.ajax() : 제이쿼리 비동기통신 메서드</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <script>
+        $.ajax({
+            type:'GET',  
+            // ↑ 아래 url 주소 끝에 ? 뒤에 요청값을 보낼때는 GET, 
+            // form요소에서 사용자가 입력한 값을 요청할 때는 POST
+            url:'./data.json',
+            dataType:'json',
+            async: true,      // 기본값인 true이면 비동기통신, false이면 동기통신
+
+            beforeSend : function(){  }, //요청하기 전에 수행할 내용 ( 로딩애니메이션 )
+            complete : function() {  },  //요청이 완료되면 수행할 내용 (로딩애니메이션 제거)
+            success : function(rdata) {
+                console.log(rdata)
+            },
+            error:function(xhr){
+                alert(xhr.status+"/"+xhr.errorText)
+            }
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch() : PWA 교재 p.66</title>
+</head>
+<body>
+    <div id="demo">
+        <!-- <p>
+            <span>Leanne Graham</span>
+            <span>Sincer@april.biz</span>
+        </p> -->
+    </div>
+
+    <script>
+        // API데이터를 비동기요청할 때 사용하는 자바스크립트 메서드
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then( value =>  value.json() )              // json() : Promise 객체를 json 파일로 변환
+        .then( pjson => {
+            console.log(pjson)
+            var elp = ""
+            for (let i in pjson) {
+                elp += `<p><span>이름 : ${pjson[i].name}, </span><span>이메일 : ${pjson[i].email}</span></p>`
+            }
+            document.querySelector('#demo').innerHTML = elp
+        } )
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise 객체</title>
+</head>
+<body>
+    <!-- <div id="demo"></div> -->
+    <button onclick="fnStart()">상품배송시작</button>
+
+    <script>
+        // 여러개의 비동기요청을 동기식으로 처리하려면 콜백함수를 사용해야 하는데,
+        // 일처리가 많아지면 콜백헬에 빠지게 됨.
+        // new Promise(function(myResolve, myReject){            //성공했을때 매개변수 myResolve, 실패했을때 myReject
+        //     myResolve();
+        //     myReject();
+        // })
+        // myPromise.then(
+        //     function(value){/* code if successful */},
+        //     function(error){/* code if some error */}
+        // )
+
+        // const myPromise = new Promise(function(myResolve, myReject){
+        //     setTimeout(function(){
+        //         myResolve('I love you!');
+        //         myReject();
+        //     }, 3000)
+        // })
+        // myPromise.then(
+        //     function(value){
+        //         document.querySelector('#demo').innerHTML = value
+        //     }
+        // ).catch(
+        //     function(error){
+        //         alert('응답오류')
+        //     }
+        // )
+
+        // function fnStart(){
+        //     let bStatus = Math.random() > 0.5
+        //     console.log(bStatus)
+        //     const myPromise = new Promise((myResolve, myReject) => {
+        //         setTimeout(()=>{
+        //             if (bStatus) {
+        //                 myResolve('상품이 성공적으로 배송되었습니다.')
+        //             } else {
+        //                 myReject('죄송합니다. 상품이 아직 준비되지 못했습니다.')
+        //             }
+        //         }, 3000)
+        //     })
+        //     myPromise.then(
+        //         function(value){ alert(value)},
+        //         function(error){ alert(error)}
+        //     )
+        // }
+
+        var bStatus = true;
+        const fnStart = () => {
+            bStatus = Math.random() > 0.5
+            productReady('A', 2000)
+            .then( value1 => { console.log(value1); 
+                    return productReady('B', 1000) 
+                }
+            )
+            .then( value2 => { console.log(value2); 
+                    return productReady('C', 500) 
+                }
+            )
+            .then( value3 => { console.log(value3);} )
+            .catch( error => { console.log(error) } )
+        }
+
+        const productReady = (pName, pTime) => {
+            return new Promise((myResolve, myReject)=>{
+                setTimeout(() => {
+                    if (bStatus) {
+                        myResolve(pName+'상품이 성공적으로 배송되었습니다.')
+                    } else {
+                        myReject('죄송합니다. 상품이 아직 준비되지 못했습니다.')
+                    }
+                }, pTime)
+            })
+        }
+    </script>
+
+</body>
+</html>
